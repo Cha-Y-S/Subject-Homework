@@ -10,7 +10,7 @@
  
  - 방법: syl-gen.c(또는 syl-gen-blank.c)를 수정하거나 또는 python으로 직접 작성
  
-  -> syl-gen-blank.c 수정 선택
+   -> syl-gen-blank.c 수정 선택
 
  - 문장생성 종료: 10음절 이상 생성되었을 때, corpus에서 문장의 마지막 음절 출현빈도 상위 3~5개 음절이 생성되면 종료 or '다'가 생성되면 종료
 
