@@ -18,9 +18,9 @@ int put_freq(int min)
 	int i1, i2, j1, j2;
 	int n=0;
 
-	for (i1 = 0; i1 < 94; i1++) {	// 25: B0~C8 À¸·Î Ãà¼Ò °¡´É
+	for (i1 = 0; i1 < 94; i1++) {	// 25: B0~C8 ìœ¼ë¡œ ì¶•ì†Œ ê°€ëŠ¥ 
 	for (i2 = 0; i2 < 94; i2++) {
-	for (j1 = 0; j1 < 94; j1++) {	// 25: B0~C8 À¸·Î Ãà¼Ò °¡´É
+	for (j1 = 0; j1 < 94; j1++) {	// 25: B0~C8 ìœ¼ë¡œ ì¶•ì†Œ ê°€ëŠ¥
 	for (j2 = 0; j2 < 94; j2++) {
 		if (Cnt[i1][i2][j1][j2] > min) {
 			printf("%c%c%c%c: %5d\n",
@@ -35,9 +35,9 @@ int put_freq(int min)
 int maxfreq(int i1, int i2, int *j1max, int *j2max)
 {
 	int j1, j2, maxcnt=0;
-	int hbyte=0xB0-0xA1, lbyte=0;	// 2nd syllable -- default '°¡'
+	int hbyte=0xB0-0xA1, lbyte=0;	// 2nd syllable -- default 'ê°€'
 
-	for (j1 = 15; j1 < 40; j1++) {	// 25: B0~C8 À¸·Î Ãà¼Ò °¡´É
+	for (j1 = 15; j1 < 40; j1++) {	// 25: 25: B0~C8 ìœ¼ë¡œ ì¶•ì†Œ ê°€ëŠ¥
 		for (j2 = 0; j2 < 94; j2++) {
 			if (Cnt[i1][i2][j1][j2] > maxcnt) {
 				hbyte = j1; lbyte = j2;
@@ -56,7 +56,7 @@ int put_freq_max(int min)
 	int j1max, j2max;
 	int n=0;
 
-	for (i1 = 0; i1 < 94; i1++) {	// 25: B0~C8 À¸·Î Ãà¼Ò °¡´É
+	for (i1 = 0; i1 < 94; i1++) {	// 25: 25: B0~C8 ìœ¼ë¡œ ì¶•ì†Œ ê°€ëŠ¥
 		for (i2 = 0; i2 < 94; i2++) {
 			freq = maxfreq(i1, i2, &j1max, &j2max);
 			if (freq > min) {
@@ -76,7 +76,7 @@ void next_syl_generation()
 	int i1, i2, j1, j2;
 	int i, n, freq, k=0;
 
-	printf("Start syllable(ex. '°¡') = ");
+	printf("Start syllable(ex. 'ï¿½ï¿½') = ");
 	scanf("%s", seed);
 	printf("Size(ex. 20) = ");
 	scanf("%d", &n); if (n < 0) n = 20;
@@ -116,11 +116,11 @@ long freq_count_bigram(char *fname)
 
 		for (i=0; len-i > 3; ) {
 			if ((line[i+0] & 0x80) == 0) {
-				if (line[i+0] == ' ') CntBlankStart[i1][i2]++;	// blank + 'À½Àı'
+				if (line[i+0] == ' ') CntBlankStart[i1][i2]++;	// blank + 'ìŒì ˆ'
 				i++;
 				continue;	// ASCII char
 			} else if ((line[i+2] & 0x80) == 0) {
-				if (line[i+2] == ' ') CntBlank[i1][i2]++;	// 'À½Àı' + blank
+				if (line[i+2] == ' ') CntBlank[i1][i2]++;	// 'ìŒì ˆ' + blank
 				i += 3;
 				continue;	// ASCII char
 			} else {
