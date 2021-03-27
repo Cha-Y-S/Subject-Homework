@@ -28,8 +28,45 @@ typedef struct _UnigramIndex{
 	int cnt;
 } UnigramIndex;
 
-int compare(const void *a, const void *b){
+int compare(const void *a, const void *b);
+void swap(UnigramIndex *a, UnigramIndex *b);
+void swapIndex(UnigramIndex *uniArr, int hIndex, int lIndex, int cnt, int arrSize);
+void unigramMaxFreq(char *fname, UnigramIndex *uniArr, int arrSize);
+void printArr(UnigramIndex *arr, int size);
 
+int main(int argc, char* argv[]){
+    int n, freq;
+	UnigramIndex *unigram;
+
+    if (argc < 3) { puts("Invalid command"); puts("Command: $create-sentence-bigram-base -n corpus.txt"); return 0; }
+    
+    freq = atoi(argv[1] + 1);
+    if (freq < 3 || freq > 5) { puts("n must be range from 3 to 5"); return 0;}
+
+	unigram = malloc(sizeof(UnigramIndex) * freq);
+
+	printf("===== Extracting highest frequency unigrams is proceeding =====\n");
+	unigramMaxFreq(argv[2], unigram, freq);
+	printf("===== Extracting highest frequency unigrams is complete =====\n");
+
+	printf("-\tHighest frequency unigrams' list\t-\n");
+	printArr(unigram, freq);
+	printf("-------------------------------------------------\n");
+
+	return 0;
+
+}
+
+int compare(const void *a, const void *b){
+	UnigramIndex *pa = (UnigramIndex *)a;
+	UnigramIndex *pb = (UnigramIndex *)b;
+
+	if(pa->cnt > pb->cnt)
+		return 1;
+	else if(pa->cnt < pb->cnt)
+		return -1;
+	else
+		return 0;
 }
 
 void swap(UnigramIndex *a, UnigramIndex *b){
@@ -38,26 +75,32 @@ void swap(UnigramIndex *a, UnigramIndex *b){
 	*b = temp;
 }
 
-void swapIndex(UnigramIndex *uniArr, int hIndex, int lIndex, int cnt){
-
+void swapIndex(UnigramIndex *uniArr, int hIndex, int lIndex, int cnt, int arrSize){
+	UnigramIndex temp;
+	temp.i = hIndex;
+	temp.j = lIndex;
+	temp.cnt = cnt;
+	qsort(uniArr, arrSize, sizeof(UnigramIndex), compare);
+	uniArr[0] = temp;
+	qsort(uniArr, arrSize, sizeof(UnigramIndex), compare);
 }
 
-void unigramMaxFreq(char *fname, UnigramIndex *uniArr){
+void unigramMaxFreq(char *fname, UnigramIndex *uniArr, int arrSize){
 	int i, len;
 	char line[BUFSIZ];
-	int uniCnt[25][94];
+	int uniCnt[94][94];
 	int hIndex, lIndex;
 	int hByte=0xB0-0xA1, lByte=0;
 	int minCnt = 0;	// in UnigramIndex Array
 	FILE *fp;
-
+	
 	fp = fopen(fname, "r");
 
 	while(!feof(fp)) {
 		fgets(line, BUFSIZ-1, fp);
 		len = strlen(line);
 		for(i=0; len-i > 1;){
-			if((line[i] & 0x80 == 0)){
+			if((line[i] & 0x80) == 0){
 				i++;
 				continue;	// ASCII char
 			} else {
@@ -71,33 +114,27 @@ void unigramMaxFreq(char *fname, UnigramIndex *uniArr){
 				i += 2;
 			}
 		}
+		
 	}
 
-	for(int i = 0; i < _msize(uniArr)/sizeof(int); i++){
-		uniArr[i].i = 15;
-		uniArr[i].j = i;
-		uniArr[i].cnt = uniCnt[15][i];
+	for(int i = 0; i < arrSize; i++){
+		uniArr[i].i = -1;
+		uniArr[i].j = -1;
+		uniArr[i].cnt = 0;
 	}
 
 	for(hIndex = 15; hIndex < 40; hIndex++){
 		for(lIndex = 0; lIndex < 94; lIndex++){
 			if(uniCnt[hIndex][lIndex] > minCnt){
-				swapIndex(uniArr, hIndex, lIndex, uniCnt[hIndex][lIndex]);
-				minCnt = uniCnt[hIndex][lIndex];
+				swapIndex(uniArr, hIndex, lIndex, uniCnt[hIndex][lIndex], arrSize);
+				minCnt = uniArr[0].cnt;
 			}
 		}
 	}
 }
 
-int main(int argc, char* argv[]){
-    int n, freq;
-	UnigramIndex *unigram;
-
-    if (argc < 3) { puts("Invalid command"); puts("Command: $create-sentence-bigram-base -n corpus.txt"); return 0; }
-    
-    freq = atoi(argv[1] + 1);
-    if (freq < 3 || freq > 5) { puts("n must be range from 3 to 5"); return 0;}
-
-	unigram = malloc(sizeof(int) * freq);
-
+void printArr(UnigramIndex *arr, int size){
+	for(int i = 0; i < size; i++){
+		printf("|\t\t%d: %c%c  freq = %d\t\t|\n",i, arr[i].i+0xA1, arr[i].j+0xA1, arr[i].cnt);
+	}
 }
