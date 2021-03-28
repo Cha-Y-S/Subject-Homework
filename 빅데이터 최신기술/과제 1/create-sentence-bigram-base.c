@@ -27,11 +27,17 @@
 int Cnt[94][94][94][94];	// valid for <A1~FE, A1~FE>
 int CntBlank[94][94];	// freq -- syl+blank
 int CntBlankStart[94][94];	// freq -- blank+syl
+int uniCnt[94][94];
 
 typedef struct _UnigramIndex{
     int i, j;
 	int cnt;
 } UnigramIndex;
+
+typedef struct _BigramIndex{
+	int iHigh, iLow, jHigh, jLow;
+	int cnt;
+} BigramIndex;
 
 int compare(const void *a, const void *b);
 void swap(UnigramIndex *a, UnigramIndex *b);
@@ -39,11 +45,15 @@ void changeMinFreq(UnigramIndex *uniArr, int hIndex, int lIndex, int cnt, int ar
 void unigramMaxFreq(char *fname, UnigramIndex *uniArr, int arrSize);
 void printArr(UnigramIndex *arr, int size);
 long freq_count_bigram(char *fname);
+void next_syl_generation(char *sen, int *length, int high, int low);
+int maxfreqRandom(UnigramIndex *arr, int high, int low, int *nHigh, int *nLow);
+int checkException(UnigramIndex *arr, int *nHigh, int *nLow);
 
 int main(int argc, char* argv[]){
     int n, freq;
 	int uniHigh, uniLow;
 	char sentence[BUFSIZ];
+	int sentenceLength = 0;
 	UnigramIndex *unigram;
 
     if (argc < 3) { puts("Invalid command"); puts("Command: $create-sentence-bigram-base -n corpus.txt"); return 0; }
@@ -53,24 +63,110 @@ int main(int argc, char* argv[]){
 
 	unigram = malloc(sizeof(UnigramIndex) * freq);
 
+	printf("\n");
 	printf("===== Extracting highest frequency unigrams is proceeding =====\n");
 	unigramMaxFreq(argv[2], unigram, freq);
-	printf("===== Extracting highest frequency unigrams is complete =====\n");
+	printf("===== Extracting highest frequency unigrams is complete =====\n\n");
 
-	printf("-\tHighest frequency unigrams' list\t-\n");
 	printArr(unigram, freq);
-	printf("-------------------------------------------------\n");
-
+	
 	srand(time(NULL));
 	int random = rand() % freq;
 	printf("choose one random unigram from list: %c%c\n\n", uniHigh=unigram[random].i+0xA1, uniLow=unigram[random].j+0xA1);
 
-	// TODO
-	// 	2. 선택된 음절 bigram의 빈도 가장 높은거 3개 중 하나 선택
-	//	3. 선택된 
-	// 
+	printf("===== Counting bigrams frequency is proceeding =====\n");
+	n = freq_count_bigram(argv[2]);
+	printf("===== Counting bigrams frequency is complete =====\n");
+	printf("Total %ld bigrams are found!\n\n", n);
+
+	int k = 0;
+	while(!(sentenceLength >= 20) || !((uniHigh == 0xB4) && (uniLow==0xD9))){
+		int nHigh, nLow;
+		int freq;
+		UnigramIndex *bigram = malloc(sizeof(UnigramIndex) * 3);
+		
+		freq = maxfreqRandom(bigram, uniHigh, uniLow, &nHigh, &nLow);
+		if (k > 0 && (CntBlank[uniHigh][uniLow] * k/5) > freq) {
+			sentence[sentenceLength++] = ' ';
+			k = 0;
+		} else {
+			sentence[sentenceLength++] = uniHigh;
+			sentence[sentenceLength++] = uniLow;
+			k++;
+			uniHigh = nHigh;
+			uniLow = nLow;
+		}
+	}
+	sentence[sentenceLength++] = uniHigh;
+	sentence[sentenceLength++] = uniLow;
+
+	printf("Created sentence: ");
+	for(int i = 0; i < sentenceLength; i++){
+		printf("%c", sentence[i]);
+	}
+	printf("\n");
 
 	return 0;
+}
+
+
+int maxfreqRandom(UnigramIndex *arr,int high, int low, int *nHigh, int *nLow){
+	int i1 = high - 0xA1;
+	int i2 = low - 0xA1;
+	int j1, j2, minCnt=0;
+	int hbyte=0xB0-0xA1, lbyte=0;	// 2nd syllable -- default '가'
+
+	for(int i = 0; i < 3; i++){
+		arr[i].i = -1;
+		arr[i].j = -1;
+		arr[i].cnt = 0;
+	}
+
+	for (j1 = 15; j1 < 40; j1++) {	// 25: 25: B0~C8 으로 축소 가능
+		for (j2 = 0; j2 < 94; j2++) {
+			if (Cnt[i1][i2][j1][j2] > minCnt) {
+				changeMinFreq(arr, j1, j2, Cnt[i1][i2][j1][j2], 3);
+				hbyte = j1; lbyte = j2;
+				minCnt = arr[0].cnt;
+			}
+		}
+	}
+
+	if(checkException(arr, &hbyte, &lbyte)){
+		hbyte = rand() % 25 + 15;
+		lbyte = rand() % 94;
+		minCnt = uniCnt[hbyte][lbyte];
+	}
+	*nHigh = hbyte + 0xA1;
+	*nLow = lbyte + 0xA1;
+
+	return minCnt;
+}
+
+int checkException(UnigramIndex *arr, int *nHigh, int *nLow){
+	int rNum;
+
+	if(arr[0].cnt <= 0){
+		if(arr[1].cnt > 0){
+			rNum = rand() % 2;
+			*nHigh = arr[rNum + 1].i;
+			*nLow = arr[rNum + 1].j ;
+			return 0;
+		} else {
+			if(arr[2].cnt > 0){
+				*nHigh = arr[2].i;
+				*nLow = arr[2].j;
+				return 0;
+			} else {
+				return 1;
+			}
+		}
+	} else {
+		rNum = rand() % 3;
+		*nHigh = arr[rNum].i;
+		*nLow = arr[rNum].j;
+		return 0;
+	}
 }
 
 long freq_count_bigram(char *fname){
@@ -106,7 +202,7 @@ long freq_count_bigram(char *fname){
 					Cnt[i1][i2][j1][j2]++;
 					n++;
 				}
-				i += 4;
+				i += 2;
 			}
 		}
 	}
@@ -138,7 +234,6 @@ void changeMinFreq(UnigramIndex *uniArr, int hIndex, int lIndex, int cnt, int ar
 
 void unigramMaxFreq(char *fname, UnigramIndex *uniArr, int arrSize){
 	int i, len;
-	int uniCnt[94][94];
 	int hIndex, lIndex;
 	int minCnt = 0;	// in UnigramIndex Array
 	FILE *fp;
@@ -160,7 +255,6 @@ void unigramMaxFreq(char *fname, UnigramIndex *uniArr, int arrSize){
 					;
 				} else {
 					uniCnt[hIndex][lIndex]++;
-					// printf("%d: Found unigram %c%c\n", i, hIndex+0xA1,lIndex+0xA1);	
 				}
 				i += 2;
 			}
@@ -185,7 +279,9 @@ void unigramMaxFreq(char *fname, UnigramIndex *uniArr, int arrSize){
 }
 
 void printArr(UnigramIndex *arr, int size){
+	printf("-\tHighest frequency unigrams' list\t-\n");
 	for(int i = 0; i < size; i++){
 		printf("|\t\t%d: %c%c  freq = %d\t\t|\n",i, arr[size-1-i].i+0xA1, arr[size-1-i].j+0xA1, arr[size-1-i].cnt);
 	}
+	printf("-------------------------------------------------\n");
 }
