@@ -1,11 +1,22 @@
 /*
- * ?…?Š¤?Š¸ ?ŒŒ?¼?—?„œ "character ngram" ì¶”ì¶œ ?”„ë¡œê·¸?¨
- *	C> a.exe -n < input.txt > output.txt
- *		(n = 1, 2, 3, 4, ...)
- *	<ì°¸ê³ > ê³µë°±ë¬¸ì?Š” '_'ë¡? ???ì¹?, ì²«ë ë¬¸ì ì¶”ê??(SS='^', SE='$')
- *	<ì£¼ì˜> ?•œê¸? ?…?Š¤?Š¸?Š” "KS ?™„?„±?˜•"?´?–´?•¼ ?•¨!
- * êµ?ë¯¼ë???•™êµ? ?†Œ?”„?Š¸?›¨?–´?•™ë¶? ê°•ìŠ¹?‹ (nlpkang@gmail.com)
- */
+* This program calculate percentage to create sentence base on bigram syllable
+*	$gcc -o calculate-sentence-percentage calculate-sentence-percentage.c
+*	$calculate-sentence-percentage corpus.txt
+*		Input
+*			corpus.txt: lines of Korean syllable bigram
+*		Char. code
+*			KS C 5601-1987 Hangul/Hanjs/2byte-symbol
+*		Output
+*			Percetage of created sentence
+*
+*	Process
+*		1. When counting bigram syllable is done, enter a sentence for calculating percentage
+*		2. When input sentence is "q", input process will be done
+*		3. Then, program create sentence using dic1, dic2, and calculate it's sentence
+*		4. Print highest percentage sentence & percentage and terminate process
+*
+* Written by Cha Yoonsung, 20163162, vaite714@gmail.com
+*/
 
 #include <stdio.h>
 #include <string.h>
