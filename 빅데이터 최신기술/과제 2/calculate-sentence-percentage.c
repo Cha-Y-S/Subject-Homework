@@ -21,6 +21,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <float.h>
 
 int bigramCnt[94][94][94][94];
 int cntBlank[94][94];
@@ -59,7 +60,6 @@ int main(int argc, char *argv[]) {
 
 	printf("===== Homework 2-1 =====\n\n");
 	while(1){
-		// printf("Enter a sentence for calculating percentage to make sentence\n");
 		printf(">> ");
 		gets(input);
 		if(strcmp(input, "q") == 0){
@@ -67,6 +67,7 @@ int main(int argc, char *argv[]) {
 		}
 		strcat(input, "$");
 		double per = calSentencePer(input);
+		per = per ? per : DBL_MIN;
 		printf("Sentence Percentage: %e\n\n", per);
 	}
 
@@ -77,45 +78,32 @@ int main(int argc, char *argv[]) {
 	char *sentence;
 	char maxSentence[BUFSIZ];
 	
-	// printf("where1\n");
 	while((sentence=get_sent_dic1()) != NULL) {
-		// printf("%s \t", sentence);
-		// printf("where1-1\n");
 		strcat(sentence, "$");
-		// printf("where1-2\n");
 		per = calSentencePer(sentence);
-		// printf("%e\n",per);
-		// printf("where1-3\n");
 		if(per > maxPer){
 			strcpy(maxSentence, sentence);
 			maxPer = per;
 			printf("\n%s\t%e\n", sentence, per);
 		}
 	}
-	// printf("where2");
 	printf("\n----- 2-1 Highest Percentage Sentence -----\n");
-	printf("\n>> %s,\t%e\n\n", maxSentence, maxPer);
+	printf("\n>> %s\t%e\n\n", maxSentence, maxPer);
 
 	maxPer = 0;
 	maxSentence[0] = '\0';
 
-	// printf("where3");
 	while((sentence=get_sent_dic2()) != NULL) {
-		// printf("%s \t", sentence);
-		// printf("where1-1\n");
 		strcat(sentence, "$");
-		// printf("where1-2\n");
 		per = calSentencePer(sentence);
-		// printf("%e\n",per);
 		if(per > maxPer){
 			strcpy(maxSentence, sentence);
 			maxPer = per;
-			printf("%s\t%e\n", sentence, per);
+			printf("\n%s\t%e\n", sentence, per);
 		}
 	}
-	// printf("where4");
 	printf("\n----- 2-2 Highest Percentage Sentence -----\n");
-	printf("\n>> %s,\t%e\n", maxSentence, maxPer);
+	printf("\n>> %s\t%e\n", maxSentence, maxPer);
 
 	return 0;
 }
@@ -166,26 +154,27 @@ char *get_sent_dic2() {
 }
 
 double calSentencePer(char *input){
-	// printf("%s", input);
 	int i = 0;
 	int i1, i2, j1, j2;
 	double result = 1;
 
 	while(input[i+2] != '$'){
-		// printf("percentage: %e\n", result);
-		// printf("%c%c\n", input[i],input[i+1]);
 		if((input[i] & 0x80) == 0){
 			if(input[i] == ' '){
 				i1 = (input[i+1] & 0x00FF) - 0x00A1;
 				i2 = (input[i+2] & 0x00FF) - 0x00A1;
-				result *= calBlankStartPer(i1, i2);
+				double temp = calBlankStartPer(i1, i2);
+				temp = temp ? temp : DBL_MIN;
+				result *= temp;
 				i++;
 			}
 		} else if((input[i+2] & 0x80) == 0){
 			if(input[i+2] == ' '){
 				i1 = (input[i+0] & 0x00FF) - 0x00A1;
 				i2 = (input[i+1] & 0x00FF) - 0x00A1;
-				result *= calBlankPer(i1, i2);
+				double temp = calBlankPer(i1, i2);
+				temp = temp ? temp : DBL_MIN;
+				result *= temp;
 				i += 2;
 			}
 		} else {
@@ -193,7 +182,9 @@ double calSentencePer(char *input){
 			i2 = (input[i+1] & 0x00FF) - 0x00A1;
 			j1 = (input[i+2] & 0x00FF) - 0x00A1;
 			j2 = (input[i+3] & 0x00FF) - 0x00A1;
-			result *= calBigramPer(i1, i2, j1, j2);
+			double temp = calBigramPer(i1, i2, j1, j2);
+			temp = temp ? temp : DBL_MIN;
+			result *= temp;
 			i += 2;
 		}
 	}
@@ -208,7 +199,6 @@ double calBlankStartPer(int i1, int i2){
 			total += cntBlankStart[i][j];
 		}
 	}
-	// printf("%e\n", (double)cntBlankStart[i1][i2] / total);
 	return (double)cntBlankStart[i1][i2] / total;
 }
 
@@ -219,7 +209,6 @@ double calBlankPer(int i1, int i2){
 			total += cntBlank[i][j];
 		}
 	}
-	// printf("%e\n", (double)cntBlank[i1][i2] / total);
 	return (double)cntBlank[i1][i2] / total;
 }
 
@@ -230,7 +219,6 @@ double calBigramPer(int i1, int i2, int j1, int j2){
 			total += bigramCnt[i1][i2][i][j];
 		}
 	}
-	// printf("%e\n", (double)bigramCnt[i1][i2][j1][j2] / total);
 	return (double)bigramCnt[i1][i2][j1][j2] / total;
 }
 
@@ -242,51 +230,46 @@ long countFreqBigram(char *fname) {
 	FILE *fp;
 
 	fp = fopen(fname, "r");
-	// printf("Where 1\n");
 	while (!feof(fp)) {
 		fgets(line, BUFSIZ - 1, fp);
 		len = strlen(line) - 1;
-
-		// printf("%s\n", line);
 
 		for (i=0; len-i > 3; ) {
 			if ((line[i+0] & 0x80) == 0) {
 				if (line[i+0] == ' '){
 					if((line[i+1] & 0x80) == 0) {
-						// printf("Except: %c %c\n", line[i+0], line[i+1]);
 						i += 2;
 						continue;
 					}
-					// printf("Where 3\n");
-					// printf("3: %c %c%c\n", line[i+0], line[i+1], line[i+2]);
 					i1 = (line[i+1] & 0x00FF) - 0x00A1;
 					i2 = (line[i+2] & 0x00FF) - 0x00A1;
-					cntBlankStart[i1][i2]++;	// blank + '?ùå?†à'
+					if(i1 < 0 || i2 < 0){
+						;
+					} else {
+						cntBlankStart[i1][i2]++;	// blank + syllable
+					}
+					
 				}
 				i++;
 				continue;	// ASCII char
 			} else if ((line[i+2] & 0x80) == 0) {
 				if (line[i+2] == ' '){
-					// printf("4: %c%c %c\n", line[i+0], line[i+1], line[i+2]);
-					// printf("Where 4\n");
 					i1 = (line[i+0] & 0x00FF) - 0x00A1;
-					i2 = (line[i+1] & 0x00FF) - 0x00A1;	
-					cntBlank[i1][i2]++;	// '?ùå?†à' + blank
+					i2 = (line[i+1] & 0x00FF) - 0x00A1;
+					if(i1 < 0 || i2 < 0){
+						;
+					} else {
+						cntBlank[i1][i2]++;	// syllable + blank
+					}
+					
 				}
 				i += 2;
 				continue;	// ASCII char
 			} else {
-				// printf("Where 5\n");
-				// printf("5: %c%c %c%c\n", line[i+0], line[i+1], line[i+2], line[i+3]);
-
-
 				i1 = (line[i+0] & 0x00FF) - 0x00A1;
 				i2 = (line[i+1] & 0x00FF) - 0x00A1;
 				j1 = (line[i+2] & 0x00FF) - 0x00A1;
 				j2 = (line[i+3] & 0x00FF) - 0x00A1;
-				
-				
-
 				if (i1 < 0 || i2 < 0 || j1 < 0 || j2 < 0) {
 					;	// non-KS C 5601 -- cp949 syllables
 				} else {
@@ -297,7 +280,6 @@ long countFreqBigram(char *fname) {
 			}
 		}
 	}
-	// printf("Where 2\n");
 	fclose(fp);
 	return n;
 }
