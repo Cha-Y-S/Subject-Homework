@@ -44,8 +44,6 @@
 
 KCC940_Korean_sentences_EUCKR.txt, gtlee.txt는 정상 작동
 
-RAW2169-CORE.txt의 경우 bigram count 시 오류 발생 확인
-
 확률 계산할 문장을 키보드로부터 입력받아 확률 계산
 
 키보드 입력을 끝내려면 q 입력
