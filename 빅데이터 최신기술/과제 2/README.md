@@ -39,13 +39,61 @@
 말뭉치 파일 -- 세종, 한글위키, KCC 말뭉치 중에서 선택
 
 ### <프로그램 사용 방법>
+1. my-calculate-sentence-percentage.c
+   
+    컴파일 후 입력파일로 corpus.txt 파일을 넣어줌
 
-컴파일 후 입력파일로 corpus.txt 파일을 넣어줌
+    KCC940_Korean_sentences_EUCKR.txt, gtlee.txt는 정상 작동
 
-KCC940_Korean_sentences_EUCKR.txt, gtlee.txt는 정상 작동
+    확률 계산할 문장을 키보드로부터 입력받아 확률 계산
 
-확률 계산할 문장을 키보드로부터 입력받아 확률 계산
+    키보드 입력을 끝내려면 q 입력
 
-키보드 입력을 끝내려면 q 입력
+    이후 프로그램 내부에서 문장 생성 후 각 케이스별 가장 높은 확률을 가지는 문장 및 확률 출력 후 프로그램 종료
 
-이후 프로그램 내부에서 문장 생성 후 각 케이스별 가장 높은 확률을 가지는 문장 및 확률 출력 후 프로그램 종료
+2. calculate-sentence-percentage.c
+    
+    wordcount를 이용해 bigram 음절의 확률과 빈도를 계산하는 프로그램
+
+    대용량 말뭉치 파일에 대해 전처리 과정 필요
+
+    ### PreProcessing
+
+      1. get-ngram을 이용해 bigram 추출
+
+          $ > get-ngram.exe -2 < corpus.txt > bigram.txt
+
+      2. split을 이용해 bigram.txt 나눔
+
+          $ > split.exe -4m bigram.txt
+
+      3. wordcount를 이용해 나눠진 데이터(xaa, xab, ~) 병합
+
+          $ > wordcount.exe -i -new -l xaa
+
+          $ > wordcount.exe -i -new -l xab
+
+          $ > wordcount.exe -i -new -l xac
+
+          ...
+
+          (batch 파일을 생성하는 것이 간편)
+      
+      4. wordcount 후 생성된 out.txt 사용
+
+    $ > calculate-sentence-percentage -freq out.txt
+
+    freq: 최솟값은 2로, 옵션 부여하지 않을 때 default 값 또한 2
+
+    freq보다 높은 빈도를 가지는 bigram 음절만 count 하도록 하는 옵션
+
+    ### Homework 1
+
+    키보드로부터 입력받은 문장에 대해서 문장 생성 확률을 구함
+
+    q를 입력하면 키보드로부터 입력 중지 후 Homework 2로 넘어감
+
+    ### Homework 2
+
+    dic1과 dic2로부터 만들어진 문장에 대해서 문장 생성 확률을 구한 후 각 케이스별로 문장 생성 확률이 높은 순으로 출력함
+    
