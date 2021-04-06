@@ -99,3 +99,5 @@ wordcount -i -add xdt
 wordcount -i -add xdu
 wordcount -i -add xdv
 wordcount -i -add xdw
+wordcount -i -add xdx
+wordcount -i -add xdy
