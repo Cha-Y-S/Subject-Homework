@@ -1,6 +1,6 @@
-# Test for Korean sentences
+# Check korean sentence similarity
 # input file : EUC-KR encoded 'corpus.txt' -- document
-#               && EUC-KR encoded 'out.txt' -- trigram's frequency
+#               && EUC-KR encoded 'triVec.dat' -- preprocessed vector data
 #   input sentence: 1 line of input file
 #   output sentences: 2 sentence of input file that has most similarty
 # Written by Cha Yoonsung, vaite714@gmail.com
