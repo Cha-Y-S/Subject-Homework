@@ -1,3 +1,11 @@
+# Preprocessing data for checking korean sentence similarity
+# input file : EUC-KR encoded 'out.txt' -- trigram's frequency using wordcount
+#   1. Check trigram's frequency
+#   2. Remove trigram that has under 50 frequency
+#   3. Remove trigram that has no korean syllable
+#   4. Register remainder tirgram with unique id
+# Written by Cha Yoonsung, vaite714@gmail.com
+# 20163162
 import sys
 import re
 
