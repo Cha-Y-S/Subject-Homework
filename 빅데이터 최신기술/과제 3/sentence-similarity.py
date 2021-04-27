@@ -53,7 +53,7 @@ def vectorizeSentence(s, mat):
             tSet[tTri] = tSet.get(tTri, 0) + 1
     
     for tri in tSet:
-        tVec = [mat[tri], tSet[tri]]
+        tVec = [(int)(mat[tri]), tSet[tri]]
         result.append(tVec)
 
     result.sort(key=lambda x:x[0])
@@ -63,7 +63,7 @@ def vectorizeSentence(s, mat):
 
 def printSimilarSentence(s, sens, mat):
     print("----- Input Sentence")
-    print(" >> {sentence}".format(sentence=s))
+    print(" >> {sentence}{vector}\n".format(vector=vectorizeSentence(s, mat), sentence=s))
     print("----- Similar Sentence")
     print(" >> 1. {sentence}{vector}\n\tsimilarity:{sim}\n"
         .format(sentence = sens[1][0], vector=vectorizeSentence(sens[1][0], mat), sim = sens[1][1]))
@@ -84,12 +84,12 @@ def main(argv, corpusFile, datFile):
 
     line = f.readlines()
 
-    lineLimit = 10
+    lineLimit = 20
 
-    #cLimit = len(line) # Maximum
-    # cLimit = int(len(line) / 10) # test1: Maximum / 10
+    # cLimit = len(line) # Maximum
+    cLimit = int(len(line) / 10) # test1: Maximum / 10
     # cLimit = int(len(line) / 100) # test2: Maximum / 100
-    cLimit = int(len(line) / 1000) # test3: Maximum / 1000
+    # cLimit = int(len(line) / 1000) # test3: Maximum / 1000
 
     for i in range(lineLimit):
         simSentences = [["", 0], ["", 0]]
@@ -97,6 +97,7 @@ def main(argv, corpusFile, datFile):
         vec1 = vectorizeSentence(sen1, vecMat)
         for j in range(cLimit):
             # print("===== new j! =====")
+
             if i == j:
                 continue
             sen2 = line[j]
@@ -104,21 +105,13 @@ def main(argv, corpusFile, datFile):
             
             temp = [sen2, getCosSimilarity(vec1, vec2)]
 
-            simSentences.sort(key=lambda x:x[1])
+            simSentences.sort(key=lambda x:(float)(x[1]))
 
             if simSentences[0][1] < temp[1]:
                 simSentences[0] = temp
 
-            simSentences.sort(key=lambda x:x[1])
+            simSentences.sort(key=lambda x:(float)(x[1]))
         
-        # print("for j is done!!!!!!!!!")
-        # print("----- Input Sentence")
-        # print(" >> {sentence}".format(sentence=sen1))
-        # print("----- Similar Sentence")
-        # print(" >> 1. {sentence}{vector}\n\tsimilarity:{sim}\n"
-        #     .format(sentence = simSentences[1][0], vector=vectorizeSentence(simSentences[1][0], vecMat), sim = simSentences[1][1]))
-        # print(" >> 2. {sentence}{vector}\n\tsimilarity:{sim}\n"
-        #     .format(sentence = simSentences[0][0], vector=vectorizeSentence(simSentences[0][0], vecMat), sim = simSentences[0][1]))
         printSimilarSentence(sen1, simSentences, vecMat)
 
     return
