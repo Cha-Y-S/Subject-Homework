@@ -8,6 +8,7 @@
         1-1. 음절 bigram 확률 계산을 이용한 문장 생성
         1-2. 문장 생성 확률 계산
         1-3. 코사인 유사도를 이용한 문장 유사도 검사
+        1-4. WordCount
    
 
 Created by 20163162 Cha Yoonsung
