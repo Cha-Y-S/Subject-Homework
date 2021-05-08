@@ -6,15 +6,16 @@
 # Kookmin.Univ Software 20163162
 
 import sys
+from tqdm import tqdm
 
 def storeCountedWord(wSet):
-    w = open("out.txt", 'w', encoding='utf-8')
+    w = open("out.txt", 'w', encoding='utf8')
 
     for i in range(1000):
         if(i > len(wSet) - 1):
             break
         word = wSet[i][0]
-        freq = wSet[i][1]
+        freq = (int)(wSet[i][1])
 
         data = "{w}\t{f}\n".format(w=word, f=freq)
         w.write(data)
@@ -23,7 +24,7 @@ def storeCountedWord(wSet):
 
 def getWordSet(l):
     wSet = {}
-    for i in range(len(l)):
+    for i in tqdm(range(len(l))):
         temp = l[i].split()
         for j in range(len(temp)):
             word = ''.join(temp[j])
