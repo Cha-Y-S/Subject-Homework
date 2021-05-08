@@ -1,6 +1,6 @@
 # Word Count
 
-  위키피디아 문장 데이터 셋<https://www.kaggle.com/mikeortman/wikipedia-sentences>
+  [위키피디아 문장 데이터 셋](https://www.kaggle.com/mikeortman/wikipedia-sentences)
 
   ### 데이터셋에서 가장 많이 등장한 단어 1000개를 찾고, 각 단어가 몇 번이나 등장하였는지 조사하기
 
