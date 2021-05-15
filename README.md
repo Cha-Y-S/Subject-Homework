@@ -9,6 +9,8 @@
         1-2. 문장 생성 확률 계산
         1-3. 코사인 유사도를 이용한 문장 유사도 검사
         1-4. WordCount
+        1-5. WordCount with toymr
+
    
 
 Created by 20163162 Cha Yoonsung
