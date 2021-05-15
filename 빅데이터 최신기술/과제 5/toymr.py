@@ -19,6 +19,8 @@ with open(inputpath, 'r') as f:
     for k, v in job.shuffle.items():
         job.reduce_func(k, v)
 
+    job.listSorting()
+
 with open(outputpath, 'w') as f:
     for k, v in job.result:
         f.write(f"{k}\t{v}\n")
