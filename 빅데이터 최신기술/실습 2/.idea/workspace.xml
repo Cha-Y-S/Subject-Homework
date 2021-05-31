@@ -4,29 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f148815c-baab-47e1-9d74-cd35709bb14b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sample.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wordcount/WCMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wordcount/WCReducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wordcount/WordCount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/wordcount/WordCountTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../과제 3/triVec.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../과제 5/my_doc_word_count" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../실습 1/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../실습 1/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../실습 1/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../실습 1/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../실습 1/src/main/java/wordcount/WCMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../실습 1/src/main/java/wordcount/WCMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../실습 1/src/main/java/wordcount/WCReducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../실습 1/src/main/java/wordcount/WCReducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../실습 1/src/main/java/wordcount/WordCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../실습 1/src/main/java/wordcount/WordCount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../실습 1/src/test/java/wordcount/WordCountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../실습 1/src/test/java/wordcount/WordCountTest.java" afterDir="false" />
+    <list default="true" id="f148815c-baab-47e1-9d74-cd35709bb14b" name="Default Changelist" comment="추가: 실습 2 - HDFS에서의 wordcount">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +76,14 @@
       <option name="presentableId" value="Default" />
       <updated>1622451902546</updated>
     </task>
+    <task id="LOCAL-00001" summary="추가: 실습 2 - HDFS에서의 wordcount">
+      <created>1622457875985</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1622457875985</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -110,5 +97,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="추가: 실습 2 - HDFS에서의 wordcount" />
+    <option name="LAST_COMMIT_MESSAGE" value="추가: 실습 2 - HDFS에서의 wordcount" />
   </component>
 </project>
