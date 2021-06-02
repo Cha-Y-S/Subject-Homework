@@ -28,10 +28,21 @@
 주제: Word Count
 
 ## ISDONE
+
 -----
+
 ## 과제 5
 
 주제: Word Count with toymr
 
 ## ISDONE
+
+-----
+
+## 과제 6
+
+주제: 서울 공기질 데이터 분석
+
+## ISDONE
+
 -----
