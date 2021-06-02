@@ -37,7 +37,7 @@ public class Problem2 extends Configured implements Tool {
 
 		// 4. Setting Mapper Output Key Class
 		job.setMapOutputKeyClass(Text.class);
-		job.setMapOutputValueClass(DoubleWritable.class);
+		job.setMapOutputValueClass(Text.class);
 
 		// 5. Setting Input & Output Format Class
 		job.setInputFormatClass(TextInputFormat.class);

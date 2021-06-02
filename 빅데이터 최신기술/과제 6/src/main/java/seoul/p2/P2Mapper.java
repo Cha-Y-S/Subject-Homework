@@ -7,14 +7,14 @@ import org.apache.hadoop.mapreduce.Mapper;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
-public class P2Mapper extends Mapper<Object, Text, Text, DoubleWritable> {
+public class P2Mapper extends Mapper<Object, Text, Text, Text> {
 	// arg1: Map Input Key type
 	// arg2: Map Input Value type
 	// arg3: Map Output Key type
 	// arg4: Map Output Value type
 
 	Text ok = new Text();
-	DoubleWritable ov = new DoubleWritable();
+	Text ov = new Text();
 
 	@Override
 	protected void map(Object key, Text value, Context context) throws IOException, InterruptedException {
@@ -24,22 +24,30 @@ public class P2Mapper extends Mapper<Object, Text, Text, DoubleWritable> {
 		StringTokenizer st = new StringTokenizer(value.toString(), ",");
 
 		// set Key
-		st.nextToken();												// 2017-01-01 00:00
+		String dateCode = st.nextToken();												// 2017-01-01 00:00
 		String stationCode = st.nextToken();	// 101
-		String itemCode = st.nextToken();			// 1
+		Integer itemCode = Integer.parseInt(st.nextToken());
 
 		// itemCode == 8 -> PM10, itemCode == 9 -> PM2.5
-		if(Integer.parseInt(itemCode) != 8 && Integer.parseInt(itemCode) != 9) return;
+		if(itemCode != 8 && itemCode != 9) return;
 
-		// set Value
-		double itemValue = Double.parseDouble(st.nextToken());	// 0.004
+		// Set Value
+		Double itemValue = Double.parseDouble(st.nextToken());	// 0.004
+		switch(itemCode){
+			case 8:
+				if(!(itemValue <= 30 && itemValue >= 0)) return;
+				break;
+			case 9:
+				if(!(itemValue <= 15 && itemValue >= 0)) return;
+				break;
+		}
 
 		String statusCode = st.nextToken();		// 0
 		if(Integer.parseInt(statusCode) != 0) return;	// statusCode == 0 -> normal data
 
-		ok.set(stationCode + "\t" + itemCode);
+		ok.set(stationCode);
 
-		ov.set(itemValue);
+		ov.set(dateCode + "," + itemCode + "," + itemValue);
 
 		// emit
 		context.write(ok, ov);

@@ -1,37 +1,33 @@
 package seoul.p2;
 
-import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.StringTokenizer;
 
-public class P2Reducer extends Reducer<Text, DoubleWritable, Text, IntWritable> {
+public class P2Reducer extends Reducer<Text, Text, Text, IntWritable> {
 
 	Text ok = new Text();
 	IntWritable ov = new IntWritable();
 
 	@Override
-	protected void reduce(Text key, Iterable<DoubleWritable> values, Context context) throws IOException, InterruptedException {
+	protected void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
+		// 101
+		String stationCode = key.toString();
 
-		StringTokenizer st = new StringTokenizer(key.toString());
-		String stationCode = st.nextToken();
-		Integer itemCode = Integer.parseInt(st.nextToken());
-		String itemName = itemCode == 8 ? "PM10" : "PM2.5";
-
-		ok.set(stationCode + "\t" + itemName);
+		ok.set(stationCode);
 
 		int cnt = 0;
+		HashMap<String, Integer> airMap = new HashMap<String, Integer>();
 
-		for(DoubleWritable d: values){
-			double itemValue = d.get();
-			if(itemCode == 8){
-				if(itemValue > 0 && itemValue <= 30) cnt++;
-			} else {
-				if(itemValue > 0 && itemValue <= 15) cnt++;
-			}
+		for(Text t: values){
+			StringTokenizer st = new StringTokenizer(t.toString(), ",");
+			String dateCode = st.nextToken();
+			if(airMap.containsKey(dateCode)) cnt++;
+			else airMap.put(dateCode, 1);
 		}
 
 		// set Output Format
