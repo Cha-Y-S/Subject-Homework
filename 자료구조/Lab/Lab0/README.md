@@ -1,6 +1,6 @@
 # LAB 0: Basic Exercise
 
-${*}$주의: program에 "이름, 학번, 프로그램ID(ex. Lab0) 표기할 것.
+*주의: program에 "이름, 학번, 프로그램ID(ex. Lab0) 표기할 것.
 
 ---
 
@@ -28,7 +28,7 @@ of program and its output is yes another program. To avoid confusion,
    Total Number of Word : 36
 ```
 
-${*}$참조: Word Count 알고리즘
+*참조: Word Count 알고리즘
 
 ```c
   While(buffer is not empty) {
