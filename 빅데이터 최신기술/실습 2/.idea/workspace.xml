@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f148815c-baab-47e1-9d74-cd35709bb14b" name="Default Changelist" comment="추가: 실습 2 - HDFS에서의 wordcount" />
+    <list default="true" id="f148815c-baab-47e1-9d74-cd35709bb14b" name="Default Changelist" comment="추가: 실습 2 - HDFS에서의 wordcount">
+      <change afterPath="$PROJECT_DIR$/../.idea/빅데이터 최신기술.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,9 +27,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.4512195" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
