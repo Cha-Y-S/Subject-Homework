@@ -9,10 +9,12 @@
   <details>
   <summary>1-1. Lab</summary>
   <div markdown="1">
-    
+
   - [Lab0 - Basic Exercise](https://github.com/Cha-Y-S/Subject-Homework/tree/Structure/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Lab/Lab0)
 
   - [Lab1 - Recursion Test](https://github.com/Cha-Y-S/Subject-Homework/tree/Structure/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Lab/Lab1)
+
+  - [Lab2 - Magic Square](https://github.com/Cha-Y-S/Subject-Homework/tree/Structure/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Lab/Lab2)
 
   </div>
   </details>
