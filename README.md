@@ -16,6 +16,8 @@
 
   - [Lab2 - Magic Square](https://github.com/Cha-Y-S/Subject-Homework/tree/Structure/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Lab/Lab2)
 
+  - [Lab3 - Parentheses](https://github.com/Cha-Y-S/Subject-Homework/tree/Structure/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Lab/Lab3)
+
   </div>
   </details>
 
