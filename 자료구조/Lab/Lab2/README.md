@@ -1,4 +1,4 @@
-# Lab 1: Magic Square problem
+# Lab 2: Magic Square problem
 
 magic square란, 1에서 n<sup>2</sup>까지의 정수로된 `n x n` 행렬로서, 각행의 합, 열의 합, 주 대각선의 합이 모두 같다. 또한 크기가 n이고, n은 홀수이다.
 
