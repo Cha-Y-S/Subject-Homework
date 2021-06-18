@@ -9,6 +9,7 @@ Stack과 Queue를 함께 사용하여 "abcde"를 순서대로 입력하고 "ebcd
 #### ENQUEUE, DEQUE, QueueFull, QueueEmpty, DisplayQ,
 #### C-Enque, C-Deque, display-CQ
 <br>
+
 *조건: Stack size 2, Queue size 3으로 구성.
 
 *검사: 다음 명령들을 순서대로 main 프로그램에 작성할 것
