@@ -1,4 +1,4 @@
-# Lab 3: Stack and Queue Practice
+# Lab 4: Stack and Queue Practice
 
 Stack과 Queue를 함께 사용하여 "abcde"를 순서대로 입력하고 "ebcda"를 순서대로 출력하는 program을 다음 10개의 ADT를 작성하여 완성하라.
 
