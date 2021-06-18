@@ -5,9 +5,9 @@ Stack과 Queue를 함께 사용하여 "abcde"를 순서대로 입력하고 "ebcd
 <p align="center">S: Stack,&emsp;&emsp;Q: Queue,&emsp;&emsp;ch: character</p>
 
 ### ADT
-<p text-weight="bold">PUSH, POP, StackFull, StackEmpty, DisplayStack, </p>
-<p text-weight="bold">ENQUEUE, DEQUE, QueueFull, QueueEmpty, DisplayQ, </p>
-<p text-weight="bold">C-Enque, C-Deque, display-CQ</p>
+<p font-weight="bold">PUSH, POP, StackFull, StackEmpty, DisplayStack, </p>
+<p font-weight="bold">ENQUEUE, DEQUE, QueueFull, QueueEmpty, DisplayQ, </p>
+<p font-weight="bold">C-Enque, C-Deque, display-CQ</p>
 
 Output:
 
