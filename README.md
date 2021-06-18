@@ -41,6 +41,8 @@
 
   6. [서울 공기질 데이터 분석](https://github.com/Cha-Y-S/Subject-Homework/tree/main/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%B5%9C%EC%8B%A0%EA%B8%B0%EC%88%A0/%EA%B3%BC%EC%A0%9C%206)
 
+  7. [Spark로 삼각형 구하기](https://github.com/Cha-Y-S/Subject-Homework/tree/main/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%B5%9C%EC%8B%A0%EA%B8%B0%EC%88%A0/%EA%B3%BC%EC%A0%9C%207)
+
   7. [실습 - MapReduce를 이용한 WordCount](https://github.com/Cha-Y-S/Subject-Homework/tree/main/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%B5%9C%EC%8B%A0%EA%B8%B0%EC%88%A0/%EC%8B%A4%EC%8A%B5%201)
 
   8. [실습 - DFS에서의 WordCount](https://github.com/Cha-Y-S/Subject-Homework/tree/main/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%B5%9C%EC%8B%A0%EA%B8%B0%EC%88%A0/%EC%8B%A4%EC%8A%B5%202)
