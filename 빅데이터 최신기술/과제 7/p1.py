@@ -20,6 +20,5 @@ wedges = data.map(lambda line: tuple(map(int, line.split("\t")))).groupByKey().m
 triangle = wedges.join(edges)
 node_triangle = triangle.flatMap(lambda x: x).flatMap(lambda x:x).filter(lambda x: x!= -1).map(lambda x: (x, 1)).reduceByKey(lambda x,y: x+y).collect()
 
-# Print Triangle's Count && Save Triangles As Text File
-print(triangle.count())
-triangle.saveAsTextFile("p1")
+# Save Total Triangle's Count As Text File
+sc.parallelize([triangle.count()]).saveAsTextFile("p1")
