@@ -9,8 +9,14 @@
   <details>
   <summary>1-1. Lab</summary>
   <div markdown="1">
-    
-  - Lab
+
+  - [Lab0 - Basic Exercise](https://github.com/Cha-Y-S/Subject-Homework/tree/Structure/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Lab/Lab0)
+
+  - [Lab1 - Recursion Test](https://github.com/Cha-Y-S/Subject-Homework/tree/Structure/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Lab/Lab1)
+
+  - [Lab2 - Magic Square](https://github.com/Cha-Y-S/Subject-Homework/tree/Structure/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Lab/Lab2)
+
+  - [Lab3 - Parentheses](https://github.com/Cha-Y-S/Subject-Homework/tree/Structure/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Lab/Lab3)
 
   </div>
   </details>
@@ -26,7 +32,7 @@
   </details>
 
   <details>
-  <summary>2. Bigdata Latest Technolog_2021</summary>
+  <summary>2. Bigdata Latest Technology_2021</summary>
   <div markdown="1">
 
   1. [음절 bigram 확률 계산을 이용한 문장 생성](https://github.com/Cha-Y-S/Subject-Homework/tree/main/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%B5%9C%EC%8B%A0%EA%B8%B0%EC%88%A0/%EA%B3%BC%EC%A0%9C%201)
