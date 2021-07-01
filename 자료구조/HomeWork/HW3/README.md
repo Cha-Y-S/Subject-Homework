@@ -54,3 +54,18 @@
       |   J   |  610  |  CS   |   A   |
 
   3. data1 파일에 data2 파일을 합쳐서 이름의 알파벳순으로 새로운 리스트를 만들고, 그 중 <u>CS전공</u> 학생들만 출력하라.
+
+      출력
+
+      | Name  |  ID   | Major | Grade |
+      | :---: | :---: | :---: | :---: |
+      |   B   |  195  |  CS   |   A   |
+      |   H   |  152  |  CS   |   B   |
+      |   I   |  480  |  CS   |   A   |
+      |   J   |  610  |  CS   |   A   |
+
+### Compile
+
+```cmd
+> g++ -o HW3 MyNode.hpp MyList.hpp HW3.cpp
+```
