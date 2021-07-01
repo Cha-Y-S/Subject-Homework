@@ -1,4 +1,4 @@
-# HW2: Singly Linked List Exercise
+# HW3: Singly Linked List Exercise
 
 ### purpose: To manipulate an ordered Signly linked list
 
