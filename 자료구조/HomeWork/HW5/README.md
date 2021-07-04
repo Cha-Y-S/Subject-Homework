@@ -41,12 +41,22 @@
 
   </div>
 
-### 2. Algorithm(See lectrue Note)
+### 2. Algorithm(See lecture Note)
 
 <br />
 
 ### Compile
 
 ```cmd
-> g++ -o HW3 MyNode.hpp MyList.hpp HW3.cpp
+> g++ -o HW5 HW5.cpp MyHeap.hpp MyTree.hpp
+
+> HW5
+
+1. input a number for amount of data
+
+2. Enter as much as the amount of data
+
+3. Enter a number according to Menu
+
 ```
+
