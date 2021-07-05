@@ -59,67 +59,67 @@
   <caption> Adjacent Matrix </cation>
   <tbody>
     <tr>
-      <th> </th>
-      <th>v0</th>
-      <th>v1</th>
-      <th>v2</th>
-      <th>v3</th>
-      <th>v4</th>
-      <th>v5</th>
+      <th align = center> </th>
+      <th align = center>v0</th>
+      <th align = center>v1</th>
+      <th align = center>v2</th>
+      <th align = center>v3</th>
+      <th align = center>v4</th>
+      <th align = center>v5</th>
     </tr>
     <tr>
-      <td>v0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
+      <td align = center>v0</td>
+      <td align = center>0</td>
+      <td align = center>0</td>
+      <td align = center>0</td>
+      <td align = center>0</td>
+      <td align = center>1</td>
+      <td align = center>1</td>
     </tr>
     <tr>
-      <td>v1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
+      <td align = center>v1</td>
+      <td align = center>0</td>
+      <td align = center>0</td>
+      <td align = center>1</td>
+      <td align = center>1</td>
+      <td align = center>0</td>
+      <td align = center>1</td>
     </tr>
     <tr>
-      <td>v2</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
+      <td align = center>v2</td>
+      <td align = center>0</td>
+      <td align = centertd>1</td>
+      <td align = center>0</td>
+      <td align = center>1</td>
+      <td align = center>1</td>
+      <td align = center>0</td>
     </tr>
     <tr>
-      <td>v3</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td align = center>v3</td>
+      <td align = center>0</td>
+      <td align = center>1</td>
+      <td align = center>1</td>
+      <td align = center>0</td>
+      <td align = center>0</td>
+      <td align = center>0</td>
     </tr>
     <tr>
-      <td>v4</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
+      <td align = center>v4</td>
+      <td align = center>1</td>
+      <td align = center>0</td>
+      <td align = center>1</td>
+      <td align = center>0</td>
+      <td align = center>0</td>
+      <td align = center>1</td>
     </tr>
     <tr>
-      <td>v5</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
+      <td align = center>v5</td>
+      <td align = center>1</td>
+      <td align = center>1</td>
+      <td align = center>0</td>
+      <td align = center>0</td>
+      <td align = center>1</td>
+      <td align = center>0</td>
     </tr>
   </tbody>
   <tfoot>
@@ -154,6 +154,5 @@
           }
         v = deletequeue();
       }
-
     }
     ```
