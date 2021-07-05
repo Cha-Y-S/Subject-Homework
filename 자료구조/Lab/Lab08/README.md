@@ -1,4 +1,4 @@
-# Lab 7: Binary Search Tree
+# Lab 8: Binary Search Tree
 
 ### Main Program
 
