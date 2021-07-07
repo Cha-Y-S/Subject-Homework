@@ -156,3 +156,19 @@
       }
     }
     ```
+
+---
+
+### Compile
+
+#### Lab 9-1
+
+```cmd
+> g++ -o Lab9-1 Lab9-1.cpp MyGraph.hpp MyNode.hpp
+```
+
+#### Lab 9-2
+
+```cmd
+> g++ -o Lab9-2 Lab9-2.cpp
+```
