@@ -88,7 +88,7 @@
     <tr>
       <td align = center>v2</td>
       <td align = center>0</td>
-      <td align = centertd>1</td>
+      <td align = center>1</td>
       <td align = center>0</td>
       <td align = center>1</td>
       <td align = center>1</td>
@@ -124,7 +124,7 @@
   </tbody>
   <tfoot>
     <tr>
-      <td colspan = "7" align = center>Bread First Search(BFS) : v0 v4 v5 v2 v1 v3</td>
+      <td colspan = "7" align = center>Breadth First Search(BFS) : v0 v4 v5 v2 v1 v3</td>
     </tr>
   </tfoot>
 </table>
