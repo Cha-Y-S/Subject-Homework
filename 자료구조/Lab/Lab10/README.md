@@ -76,7 +76,7 @@
    
   5. Edge5: D 20 E
 
-__**Total Cost:  54**__
+**Total Cost:  54**
 
 ---
 
