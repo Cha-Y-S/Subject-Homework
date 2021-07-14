@@ -82,14 +82,14 @@
 
 ### Compile
 
-#### Lab 9-1
+#### Lab 10-1
 
 ```cmd
 > g++ -o Lab10-1 Lab10-1.cpp
 ```
 
-#### Lab 9-2
+#### Lab 10-2
 
 ```cmd
-> g++ -o Lab9-2 Lab9-2.cpp
+> g++ -o Lab10-2 Lab10-2.cpp MyNode.hpp MyGraph.hpp
 ```
