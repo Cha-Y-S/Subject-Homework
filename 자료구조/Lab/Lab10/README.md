@@ -85,7 +85,7 @@
 #### Lab 9-1
 
 ```cmd
-> g++ -o Lab9-1 Lab9-1.cpp MyGraph.hpp MyNode.hpp
+> g++ -o Lab10-1 Lab10-1.cpp
 ```
 
 #### Lab 9-2
