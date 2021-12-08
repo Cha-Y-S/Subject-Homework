@@ -88,7 +88,7 @@
 <summary>3. Scientic & Software thought</summary>
 <div markdown="1">
 
-1. [프로젝트 - 클래스]()
+1. [프로젝트 - 클래스](https://github.com/firemancha/Subject-Homework/blob/python/%EA%B3%BC%ED%95%99%EA%B3%BC%20%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4%EC%A0%81%20%EC%82%AC%EA%B3%A0/%EC%B5%9C%EC%A2%85%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/README.md)
 
 </div>
 </details>
