@@ -84,6 +84,15 @@
 </div>
 </details>
 
+<details>
+<summary>3. Scientic & Software thought</summary>
+<div markdown="1">
+
+1. [프로젝트 - 클래스]()
+
+</div>
+</details>
+
 <br />
 
 <div align = center>
