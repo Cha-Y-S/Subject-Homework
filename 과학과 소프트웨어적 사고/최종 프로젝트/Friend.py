@@ -4,13 +4,14 @@ from Person import Person
 class Friend(Person):
     total_friend_cnt = 0
 
-    def __init__(self, name="", addr="", age=0, p_num="", student_id="", club="", univ="", gender=""):
+    def __init__(self, name="", addr="", age=0, p_num="", student_id="", club="", univ="", major="", gender=""):
         super().__init__(name, addr)
         self.age = age
         self.p_num = p_num
         self.student_id = student_id
         self.club = club
         self.univ = univ
+        self.major = major
         self.gender = gender
         Friend.total_friend_cnt += 1
 
@@ -18,7 +19,7 @@ class Friend(Person):
         return super().get_name()
 
     def get_address(self):
-        return super().get_addr()
+        return super().get_address()
 
     def get_age(self):
         return self.age
