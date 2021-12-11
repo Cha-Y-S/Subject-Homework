@@ -1,0 +1,57 @@
+[
+  {
+    "name": "차윤성",
+    "age": 25,
+    "phoneNumber": "010-3953-8190",
+    "studentId": "20163162",
+    "club": "Kobot",
+    "university": "국민대학교",
+    "major": "컴퓨터공학부",
+    "gender": "남성",
+    "address": "경기도 남양주시 퇴계원읍"
+  },
+  {
+    "name": "양성민",
+    "age": 25,
+    "phoneNumber": "010-7253-1668",
+    "studentId": "201631**",
+    "club": "Kobot",
+    "university": "국민대학교",
+    "major": "컴퓨터공학부",
+    "gender": "남성",
+    "address": "서울특별시 성북구 정릉동"
+  },
+  {
+    "name": "최나라",
+    "age": 25,
+    "phoneNumber": "010-7184-6810",
+    "studentId": "20163163",
+    "club": "학생회 IF",
+    "university": "국민대학교",
+    "major": "컴퓨터공학부",
+    "gender": "남성",
+    "address": "서울특별시 성북구 정릉동"
+  },
+  {
+    "name": "오규석",
+    "age": 25,
+    "phoneNumber": "010-7573-1803",
+    "studentId": "201631**",
+    "club": "WINK",
+    "university": "국민대학교",
+    "major": "컴퓨터공학부",
+    "gender": "남성",
+    "address": "서울특별시 성북구 정릉동"
+  },
+  {
+    "name": "이예진",
+    "age": 25,
+    "phoneNumber": "010-1234-5678",
+    "studentId": "",
+    "club": "",
+    "university": "홍익대학교",
+    "major": "화학공학과",
+    "gender": "여성",
+    "address": "경기도 남양주시 퇴계원읍"
+  }
+]
