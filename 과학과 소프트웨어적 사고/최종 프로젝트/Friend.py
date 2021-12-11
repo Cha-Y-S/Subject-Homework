@@ -64,11 +64,15 @@ class Friend(Person):
         self.gender = gender
 
     def __str__(self):
+
         message = '''\n{top_bar} 연락처 정보 {top_bar}
 * 이름: {name}\t\t\t* 나이: {age}\t\t* 성별: {gender}
-* 학번: {student_id}\t\t* 연락처: {p_num}
+*
+* 학번: {student_id}\t\t* 전공: {major}
+*
 * 대학교: {univ}\t\t* 동아리: {club}
-* 주소: {addr}
+*
+* 연락처: {p_num}\t\t* 주소: {addr}
 {bottom_bar}\n'''.format(
             top_bar="*"*40,
             bottom_bar="*"*93,
@@ -76,6 +80,7 @@ class Friend(Person):
             age=self.age,
             gender=self.gender,
             student_id=self.student_id,
+            major=self.major,
             p_num=self.p_num,
             addr=self.addr,
             univ=self.univ,
