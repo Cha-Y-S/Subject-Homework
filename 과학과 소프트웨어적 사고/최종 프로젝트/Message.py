@@ -10,18 +10,16 @@ def print_information():
 
 
 def print_main_menu():
-    top_bar = "*" * 14 + " 메인 메뉴 " + "*"*14
+    top_bar = "*" * 20 + " 메인 메뉴 " + "*"*20
     print(top_bar.center(100))
-    print("* 1. 연락처 추가".rjust(43), "*".rjust(22))
-    print("*".rjust(33), "*".rjust(37))
-    print("* 2. 연락처 수정".rjust(43), "*".rjust(22))
-    print("*".rjust(33), "*".rjust(37))
-    print("* 3. 연락처 삭제".rjust(43), "*".rjust(22))
-    print("*".rjust(33), "*".rjust(37))
-    print("* 4. 연락처 초기화".rjust(44), "*".rjust(20))
-    print("*".rjust(33), "*".rjust(37))
-    print("* 5. 프로그램 종료".rjust(44), "*".rjust(20))
-    bottom_bar = "*"*39
+    print("* 1. 연락처 추가".rjust(37), "\t5. 연락처 조회", "*".rjust(14))
+    print("*".rjust(27), "*".rjust(49))
+    print("* 2. 연락처 수정".rjust(37), "\t6. 연락처 전체 조회", "*".rjust(9))
+    print("*".rjust(27), "*".rjust(49))
+    print("* 3. 연락처 삭제".rjust(37), "\t7. 프로그램 종료", "*".rjust(12))
+    print("*".rjust(27), "*".rjust(49))
+    print("* 4. 연락처 초기화".rjust(38), "*".rjust(32))
+    bottom_bar = "*"*51
     print(bottom_bar.center(104), "\n")
 
 
@@ -31,7 +29,7 @@ def print_error():
     print("")
     print("잘못된 값을 입력하셨습니다.".center(96))
     print("")
-    print("숫자 1 ~ 4 사이의 값을 입력해주세요.".center(100))
+    print("숫자 1 ~ 7 사이의 값을 입력해주세요.".center(100))
     print("")
 
 
@@ -74,5 +72,3 @@ def print_tof_error_message():
     print("")
     print("  -- 예 / 아니오 중 하나를 입력해주세요.")
     print("")
-
-    # def print_exit_program():

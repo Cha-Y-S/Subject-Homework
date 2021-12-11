@@ -24,12 +24,15 @@ if __name__ == '__main__':
             page_num = int(select_menu)
             if page_num == 1:
                 # print("연락처 추가")
+                print("TODO: 연락처 추가".center(100))
                 print_add_message()
             elif page_num == 2:
                 # print("연락처 수정")
+                print("TODO: 연락처 수정".center(100))
                 print_modify_message()
             elif page_num == 3:
                 # print("연락처 삭제")
+                print("TODO: 연락처 삭제".center(100))
                 print_delete_message()
             elif page_num == 4:
                 init_flag = False
@@ -51,6 +54,14 @@ if __name__ == '__main__':
                     print("== TODO: 연락처 초기화")
 
             elif page_num == 5:
+                # 연락처 조회
+                print("TODO: 연락처 조회".center(100))
+
+            elif page_num == 6:
+                # 연락처 전체 조회
+                print("TODO: 연락처 전체 조회".center(100))
+
+            elif page_num == 7:
                 exit_flag = False
 
                 while(True):
