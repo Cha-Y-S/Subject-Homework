@@ -72,3 +72,12 @@ def print_tof_error_message():
     print("")
     print("  -- 예 / 아니오 중 하나를 입력해주세요.")
     print("")
+
+
+def print_file_error_message():
+    print("")
+    print("*** 파일 오류 발생 ***".center(100))
+    print("")
+    print(" 파일을 읽거나 쓰는 중 오류가 발생하였습니다".center(84))
+    print("")
+    print(" 프로그램을 종료하시거나 명령을 재 실행해주시기 바랍니다".center(76))

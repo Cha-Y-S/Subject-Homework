@@ -1,18 +1,15 @@
+import json
 from Friend import Friend
-from Person import Person
 from Message import *
 
-# def print_add_menu():
-
-# def print_modify_menu():
-
-# def print_delete_menu():
-
-# def print_store_menu():
-
-# def print_exit_program():
 
 if __name__ == '__main__':
+    try:
+        json_file = open('./data.json', encoding="utf-8")
+        json_data = json.load(json_file)
+    except (FileNotFoundError, FileExistsError):
+        print_file_error_message()
+
     select_menu = 0
     print_information()
 
