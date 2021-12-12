@@ -11,6 +11,17 @@
     "address": "경기도 남양주시 퇴계원읍"
   },
   {
+    "name": "차윤성",
+    "age": 25,
+    "phoneNumber": "031-572-8190",
+    "studentId": "20163162",
+    "club": "Kobot",
+    "university": "국민대학교",
+    "major": "컴퓨터공학부",
+    "gender": "남성",
+    "address": "경기도 남양주시 퇴계원읍"
+  },
+  {
     "name": "양성민",
     "age": 25,
     "phoneNumber": "010-7253-1668",
@@ -42,16 +53,5 @@
     "major": "컴퓨터공학부",
     "gender": "남성",
     "address": "서울특별시 성북구 정릉동"
-  },
-  {
-    "name": "이예진",
-    "age": 25,
-    "phoneNumber": "010-1234-5678",
-    "studentId": "",
-    "club": "",
-    "university": "홍익대학교",
-    "major": "화학공학과",
-    "gender": "여성",
-    "address": "경기도 남양주시 퇴계원읍"
   }
 ]
