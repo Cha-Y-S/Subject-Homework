@@ -23,31 +23,40 @@ def print_main_menu():
     print(bottom_bar.center(104), "\n")
 
 
-def print_error():
-    print("")
-    print("*** 입력 오류 발생 ***".center(100))
-    print("")
-    print("잘못된 값을 입력하셨습니다.".center(96))
-    print("")
-    print("숫자 1 ~ 7 사이의 값을 입력해주세요.".center(100))
-    print("")
+def print_modify_menu():
+    top_bar = "*" * 20 + " 수정 메뉴 " + "*"*20
+    print(top_bar.center(100))
+    print("* 1. 이름 수정".rjust(36), "\t6. 동아리 수정", "*".rjust(14))
+    print("*".rjust(27), "*".rjust(49))
+    print("* 2. 주소 수정".rjust(36), "\t7. 대학교 수정", "*".rjust(14))
+    print("*".rjust(27), "*".rjust(49))
+    print("* 3. 연락처 수정".rjust(37), "\t8. 성별 수정", "*".rjust(16))
+    print("*".rjust(27), "*".rjust(49))
+    print("* 4. 나이 수정".rjust(36), "\t9. 수정 종료", "*".rjust(16))
+    print("*".rjust(27), "*".rjust(49))
+    print("* 5. 학번 수정".rjust(36), "*".rjust(36))
+    bottom_bar = "*"*51
+    print(bottom_bar.center(104), "\n")
 
 
 def print_add_message():
+    message = "*"*30 + " 연락처 추가 단계입니다. " + "*"*30
     print("")
-    print(" 연락처 추가 단계입니다".rjust(50, "="), "=".ljust(37, "="))
+    print(message.center(100))
     print("")
 
 
 def print_modify_message():
+    message = "*"*30 + " 연락처 수정 단계입니다. " + "*"*30
     print("")
-    print(" 연락처 수정 단계입니다".rjust(50, "="), "=".ljust(37, "="))
+    print(message.center(100))
     print("")
 
 
 def print_delete_message():
+    message = "*"*30 + " 연락처 삭제 단계입니다. " + "*"*30
     print("")
-    print(" 연락처 삭제 단계입니다".rjust(50, "="), "=".ljust(37, "="))
+    print(message.center(100))
     print("")
 
 
@@ -66,6 +75,16 @@ def print_before_exit_message():
     print("  -- 정말로 프로그램을 종료하시겠습니까? (예 / 아니오) : ", end="")
 
 
+def print_invalid_input_error(scope):
+    print("")
+    print("*** 입력 오류 발생 ***".center(100))
+    print("")
+    print("잘못된 값을 입력하셨습니다.".center(96))
+    print("")
+    print("숫자 1 ~ {scope} 사이의 값을 입력해주세요.".center(100).format(scope=scope))
+    print("")
+
+
 def print_tof_error_message():
     print("")
     print("** 입력 오류 **".center(100))
@@ -81,3 +100,10 @@ def print_file_error_message():
     print(" 파일을 읽거나 쓰는 중 오류가 발생하였습니다".center(84))
     print("")
     print(" 프로그램을 종료하시거나 명령을 재 실행해주시기 바랍니다".center(76))
+
+
+def print_store_message():
+    print("")
+    print("*** 수정 사항 저장 ***".center(100))
+    print("")
+    print(" -- 연락처의 수정 사항을 정말 저장하시겠습니까? (예/아니오): ", end="")
