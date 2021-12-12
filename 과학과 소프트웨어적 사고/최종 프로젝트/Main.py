@@ -1,15 +1,18 @@
 import json
 from Friend import Friend
+from Phonebook import Phonebook
 from Message import *
 
 
 if __name__ == '__main__':
     try:
-        json_file = open('./data.json', encoding="utf-8")
+        json_file = open('./info.json', encoding="utf-8")
         json_data = json.load(json_file)
-    except (FileNotFoundError, FileExistsError):
+    except (FileNotFoundError, TypeError):
         print_file_error_message()
+        exit()
 
+    phonebook = Phonebook(json_data)
     select_menu = 0
     print_information()
 
@@ -25,8 +28,7 @@ if __name__ == '__main__':
                 print_add_message()
             elif page_num == 2:
                 # print("연락처 수정")
-                print("TODO: 연락처 수정".center(100))
-                print_modify_message()
+                phonebook.modify_information()
             elif page_num == 3:
                 # print("연락처 삭제")
                 print("TODO: 연락처 삭제".center(100))
@@ -53,10 +55,12 @@ if __name__ == '__main__':
             elif page_num == 5:
                 # 연락처 조회
                 print("TODO: 연락처 조회".center(100))
+                param = input()
+                phonebook.search_by_name(param)
 
             elif page_num == 6:
                 # 연락처 전체 조회
-                print("TODO: 연락처 전체 조회".center(100))
+                phonebook.search_all_information()
 
             elif page_num == 7:
                 exit_flag = False
@@ -83,6 +87,6 @@ if __name__ == '__main__':
                     break
 
             else:
-                print_error()
-        except ValueError as e:
-            print_error()
+                print_invalid_input_error(scope=7)
+        except ValueError:
+            print_invalid_input_error(scope=7)
