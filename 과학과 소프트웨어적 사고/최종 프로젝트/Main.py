@@ -26,13 +26,16 @@ if __name__ == '__main__':
                 # print("연락처 추가")
                 print("TODO: 연락처 추가".center(100))
                 print_add_message()
+
             elif page_num == 2:
                 # print("연락처 수정")
                 phonebook.modify_information()
+
             elif page_num == 3:
                 # print("연락처 삭제")
                 print("TODO: 연락처 삭제".center(100))
                 print_delete_message()
+
             elif page_num == 4:
                 init_flag = False
                 while(True):
@@ -54,9 +57,7 @@ if __name__ == '__main__':
 
             elif page_num == 5:
                 # 연락처 조회
-                print("TODO: 연락처 조회".center(100))
-                param = input()
-                phonebook.search_by_name(param)
+                phonebook.search_information()
 
             elif page_num == 6:
                 # 연락처 전체 조회

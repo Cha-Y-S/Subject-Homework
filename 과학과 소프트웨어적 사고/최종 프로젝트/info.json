@@ -1,7 +1,7 @@
 [
   {
     "name": "차윤성",
-    "age": 25,
+    "age": "25",
     "phoneNumber": "010-3953-8190",
     "studentId": "20163162",
     "club": "Kobot",
@@ -12,7 +12,7 @@
   },
   {
     "name": "차윤성",
-    "age": 25,
+    "age": "25",
     "phoneNumber": "031-572-8190",
     "studentId": "20163162",
     "club": "Kobot",
@@ -23,7 +23,7 @@
   },
   {
     "name": "양성민",
-    "age": 25,
+    "age": "25",
     "phoneNumber": "010-7253-1668",
     "studentId": "201631**",
     "club": "Kobot",
@@ -34,7 +34,7 @@
   },
   {
     "name": "최나라",
-    "age": 25,
+    "age": "25",
     "phoneNumber": "010-7184-6810",
     "studentId": "20163163",
     "club": "학생회 IF",
@@ -45,7 +45,7 @@
   },
   {
     "name": "오규석",
-    "age": 25,
+    "age": "25",
     "phoneNumber": "010-7573-1803",
     "studentId": "201631**",
     "club": "WINK",
@@ -53,5 +53,27 @@
     "major": "컴퓨터공학부",
     "gender": "남성",
     "address": "서울특별시 성북구 정릉동"
+  },
+  {
+    "name": "홍지환",
+    "age": "25",
+    "phoneNumber": "010-5276-2669",
+    "studentId": "",
+    "club": "",
+    "university": "",
+    "major": "국어교육과",
+    "gender": "남성",
+    "address": "경기도 남양주시 진접읍"
+  },
+  {
+    "name": "이도현",
+    "age": "",
+    "phoneNumber": "010-9125-4529",
+    "studentId": "",
+    "club": "",
+    "university": "",
+    "major": "",
+    "gender": "",
+    "address": ""
   }
 ]

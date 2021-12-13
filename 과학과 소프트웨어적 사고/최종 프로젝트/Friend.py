@@ -39,6 +39,9 @@ class Friend(Person):
     def get_gender(self):
         return self.gender
 
+    def get_major(self):
+        return self.major
+
     def set_name(self, name):
         super().set_name(name)
 
@@ -62,6 +65,9 @@ class Friend(Person):
 
     def set_gender(self, gender):
         self.gender = gender
+
+    def set_major(self, major):
+        self.major = major
 
     def __str__(self):
 
