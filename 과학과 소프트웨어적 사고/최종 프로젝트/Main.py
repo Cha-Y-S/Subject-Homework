@@ -36,7 +36,6 @@ if __name__ == '__main__':
                         break
 
             elif page_num == 2:
-                # print("연락처 수정")
                 phonebook.modify_information()
 
             elif page_num == 3:
