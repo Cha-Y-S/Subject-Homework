@@ -1,112 +1,13 @@
 [
 	{
 		"name": "\ucc28\uc724\uc131",
-		"age": "25",
+		"age": "",
 		"phoneNumber": "010-3953-8190",
-		"studentId": "20163162",
-		"club": "Kobot",
-		"university": "\uad6d\ubbfc\ub300\ud559\uad50",
-		"major": "\ucef4\ud4e8\ud130\uacf5\ud559\ubd80",
-		"gender": "\ub0a8\uc131",
-		"address": "\uacbd\uae30\ub3c4 \ub0a8\uc591\uc8fc\uc2dc \ud1f4\uacc4\uc6d0\uc74d"
-	},
-	{
-		"name": "\ucc28\uc724\uc131",
-		"age": "25",
-		"phoneNumber": "031-572-8190",
-		"studentId": "20163162",
-		"club": "Kobot",
-		"university": "\uad6d\ubbfc\ub300\ud559\uad50",
-		"major": "\ucef4\ud4e8\ud130\uacf5\ud559\ubd80",
-		"gender": "\ub0a8\uc131",
-		"address": "\uacbd\uae30\ub3c4 \ub0a8\uc591\uc8fc\uc2dc \ud1f4\uacc4\uc6d0\uc74d"
-	},
-	{
-		"name": "\uc591\uc131\ubbfc",
-		"age": "25",
-		"phoneNumber": "010-7253-1668",
-		"studentId": "201631**",
-		"club": "Kobot",
-		"university": "\uad6d\ubbfc\ub300\ud559\uad50",
-		"major": "\ucef4\ud4e8\ud130\uacf5\ud559\ubd80",
-		"gender": "\ub0a8\uc131",
-		"address": "\uc11c\uc6b8\ud2b9\ubcc4\uc2dc \uc131\ubd81\uad6c \uc815\ub989\ub3d9"
-	},
-	{
-		"name": "\ucd5c\ub098\ub77c",
-		"age": "25",
-		"phoneNumber": "010-7184-6810",
-		"studentId": "20163163",
-		"club": "\ud559\uc0dd\ud68c IF",
-		"university": "\uad6d\ubbfc\ub300\ud559\uad50",
-		"major": "\ucef4\ud4e8\ud130\uacf5\ud559\ubd80",
-		"gender": "\ub0a8\uc131",
-		"address": "\uc11c\uc6b8\ud2b9\ubcc4\uc2dc \uc131\ubd81\uad6c \uc815\ub989\ub3d9"
-	},
-	{
-		"name": "\uc624\uaddc\uc11d",
-		"age": "25",
-		"phoneNumber": "010-7573-1803",
-		"studentId": "201631**",
-		"club": "WINK",
-		"university": "\uad6d\ubbfc\ub300\ud559\uad50",
-		"major": "\ucef4\ud4e8\ud130\uacf5\ud559\ubd80",
-		"gender": "\ub0a8\uc131",
-		"address": "\uc11c\uc6b8\ud2b9\ubcc4\uc2dc \uc131\ubd81\uad6c \uc815\ub989\ub3d9"
-	},
-	{
-		"name": "\ud64d\uc9c0\ud658",
-		"age": "25",
-		"phoneNumber": "010-5276-2669",
-		"studentId": "",
-		"club": "",
-		"university": "",
-		"major": "\uad6d\uc5b4\uad50\uc721\uacfc",
-		"gender": "\ub0a8\uc131",
-		"address": "\uacbd\uae30\ub3c4 \ub0a8\uc591\uc8fc\uc2dc \uc9c4\uc811\uc74d"
-	},
-	{
-		"name": "\uc774\ub3c4\ud604",
-		"age": "",
-		"phoneNumber": "010-9125-4529",
 		"studentId": "",
 		"club": "",
 		"university": "",
 		"major": "",
 		"gender": "",
 		"address": ""
-	},
-	{
-		"name": "\uc774\uc608\uc9c4",
-		"age": "25",
-		"phoneNumber": "010-5754-0061",
-		"studentId": "20163251",
-		"club": "FITNESS",
-		"university": "\ud64d\uc775\ub300\ud559\uad50",
-		"major": "\ud654\ud559\uacf5\ud559\uacfc",
-		"gender": "\uc5ec\uc131",
-		"address": "\uacbd\uae30\ub3c4 \ub0a8\uc591\uc8fc\uc2dc \ud1f4\uacc4\uc6d0\uc74d"
-	},
-	{
-		"name": "\ucd5c\ubcf4\uc11d",
-		"age": "",
-		"phoneNumber": "010-1234-5678",
-		"studentId": "",
-		"club": "",
-		"university": "",
-		"major": "",
-		"gender": "",
-		"address": ""
-	},
-	{
-		"name": "\uc57c\uc57c",
-		"age": "25",
-		"phoneNumber": "010-01001-0010",
-		"studentId": "12345678",
-		"club": "\ub3d9\uc544\ub9ac",
-		"university": "\uc11c\uc6b8\ub300\ud559\uad50",
-		"major": "\ucef4\ud4e8\ud130\uacf5\ud559\ubd80",
-		"gender": "\uc5ec\uc131",
-		"address": "\uc11c\uc6b8\ud2b9\ubcc4\uc2dc \uc131\ubd81\uad6c \uc815\ub989\ub3d9"
 	}
 ]

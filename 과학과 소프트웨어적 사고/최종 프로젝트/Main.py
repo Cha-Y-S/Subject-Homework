@@ -1,6 +1,4 @@
 import json
-from typing import Type
-from Friend import Friend
 from Phonebook import Phonebook
 from Message import *
 
@@ -42,8 +40,7 @@ if __name__ == '__main__':
                 phonebook.modify_information()
 
             elif page_num == 3:
-                print("TODO: 연락처 삭제".center(100))
-                print_delete_message()
+                phonebook.delete_information()
 
             elif page_num == 4:
                 init_flag = False
@@ -62,7 +59,7 @@ if __name__ == '__main__':
                         print_tof_error_message()
                         continue
                 if init_flag:
-                    print("== TODO: 연락처 초기화")
+                    phonebook.delete_all_information()
 
             elif page_num == 5:
                 phonebook.search_information()

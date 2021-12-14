@@ -70,6 +70,8 @@ class Friend(Person):
         self.major = major
 
     def __eq__(self, other):
+        if other == None:
+            return False
         return self.name == other.name and self.p_num == other.p_num
 
     def __str__(self):

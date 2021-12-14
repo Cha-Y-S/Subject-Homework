@@ -167,6 +167,108 @@ class Phonebook():
             except ValueError:
                 print_invalid_input_error(scope=10)
 
+    def delete_information(self):
+        param = self.__search_for_md()
+
+        if param == None:
+            return
+
+        print(param)
+        while True:
+            print("")
+            remove = input(" -- 해당 연락처를 정말 삭제하시겠습니까? (예/아니오): ")
+            if remove == "예":
+                self.info.remove(param)
+                Friend.total_friend_cnt -= 1
+                print("\n -- 해당 연락처가 삭제되었습니다.")
+                print("")
+                try:
+                    json_file = open('./info.json', 'w', encoding='utf-8')
+                    write_list = list()
+                    for obj in self.info:
+                        write_list.append({"name": obj.get_name(), "age": obj.get_age(), "phoneNumber": obj.get_phone_number(),
+                                           "studentId": obj.get_student_id(), "club": obj.get_club(), "university": obj.get_university(),
+                                           "major": obj.get_major(), "gender": obj.get_gender(), "address": obj.get_address()})
+
+                    json.dump(write_list, json_file, indent="\t")
+                    json_file.close()
+                except IOError:
+                    print_file_error_message()
+                finally:
+                    break
+            elif remove == "아니오":
+                print("")
+                return
+            else:
+                print_tof_error_message()
+
+    def delete_all_information(self):
+        try:
+            json_file = open('./info.json', 'w', encoding='utf-8')
+            self.info = list()
+            json.dump(self.info, json_file, indent="\t")
+            json_file.close()
+            Friend.total_friend_cnt = 0
+            print("  -- 연락처가 초기화되었습니다.\n")
+        except IOError:
+            print_file_error_message()
+
+    def __search_for_md(self):
+        print("")
+        name = input(" -- 수정/삭제하려는 이름을 검색해주세요: ")
+        print("")
+
+        candidate = []
+        for info in self.info:
+            if info.name == name:
+                candidate.append(info)
+
+        if len(candidate) == 0:
+            print("")
+            print("* 수정/삭제 대상을 찾을 수 없습니다. *".center(100))
+            print("")
+            input(" -- 프로그램을 진행시키기 위해 \"엔터\"를 눌러주세요.")
+            print("")
+            return None
+
+        if len(candidate) == 1:
+            return candidate[0]
+
+        flag = True
+        temp = None
+        while flag:
+            print(" -- 목록을 확인하고, 수정/삭제하려는 정보의 번호를 입력해주세요")
+            print("")
+            print(" -- 수정/삭제를 취소하려면 \"엔터\"를 눌러주세요.")
+            for info in candidate:
+                print(info)
+
+            p_num = input(" -- 수정/삭제 대상 번호: ")
+
+            if p_num == "":
+                break
+
+            try:
+                int(p_num)
+            except ValueError:
+                print_invalid_type_error()
+            else:
+                p_num = p_num[:3]+"-"+p_num[3:-4]+"-"+p_num[-4:]
+                temp = Friend(name=name, p_num=p_num)
+                Friend.total_friend_cnt -= 1
+                for info in candidate:
+                    if info == temp:
+                        temp = info
+                        flag = False
+                        return info
+
+                print("")
+                print("{name}, {p_num}에 해당하는 정보를 찾을 수 없습니다.".format(
+                    name=name, p_num=p_num))
+                print("")
+                input("다시 진행하기 위해 \"엔터\"를 눌러주세요.")
+                print("")
+
     def search_information(self):
         while(True):
             print_search_menu()
@@ -200,7 +302,10 @@ class Phonebook():
                 print_invalid_input_error(scope=9)
 
     def search_by_name(self):
+        print("\n  -- 취소하려면 \"엔터\"를 눌러주세요.")
         name = input("\n -- 조회하려는 이름을 입력해주세요: ")
+        if name == "":
+            return
         flag = False
         for info in self.info:
             if name == info.get_name():
@@ -213,7 +318,10 @@ class Phonebook():
             print_cannot_find_info_message(name)
 
     def search_by_address(self):
+        print("\n  -- 취소하려면 \"엔터\"를 눌러주세요.")
         addr = input("\n -- 조회하려는 주소를 입력해주세요(읍/면/동 까지): ")
+        if addr == "":
+            return
         flag = False
         for info in self.info:
             if addr == info.get_address():
@@ -228,7 +336,10 @@ class Phonebook():
     def search_by_age(self):
         age = ""
         while(True):
+            print("\n  -- 취소하려면 \"엔터\"를 눌러주세요.")
             age = input("\n -- 조회하려는 나이를 입력해주세요: ")
+            if age == "":
+                return
             try:
                 int(age)
             except ValueError:
@@ -250,7 +361,10 @@ class Phonebook():
     def search_by_id(self):
         id = ""
         while(True):
+            print("\n  -- 취소하려면 \"엔터\"를 눌러주세요.")
             id = input("\n -- 조회하려는 학번을 입력해주세요: ")
+            if id == "":
+                return
             try:
                 int(id)
             except ValueError:
@@ -270,7 +384,10 @@ class Phonebook():
             print_cannot_find_info_message(id)
 
     def search_by_club(self):
+        print("\n  -- 취소하려면 \"엔터\"를 눌러주세요.")
         club = input("\n -- 조회하려는 동아리를 입력해주세요: ")
+        if club == "":
+            return
         flag = False
         for info in self.info:
             if club == info.get_club():
@@ -283,7 +400,10 @@ class Phonebook():
             print_cannot_find_info_message(club)
 
     def search_by_university(self):
+        print("\n  -- 취소하려면 \"엔터\"를 눌러주세요.")
         univ = input("\n -- 조회하려는 대학교를 입력해주세요: ")
+        if univ == "":
+            return
         flag = False
         for info in self.info:
             if univ == info.get_university():
@@ -296,7 +416,10 @@ class Phonebook():
             print_cannot_find_info_message(univ)
 
     def search_by_major(self):
+        print("\n  -- 취소하려면 \"엔터\"를 눌러주세요.")
         major = input("\n -- 조회하려는 전공을 입력해주세요: ")
+        if major == "":
+            return
         flag = False
         for info in self.info:
             if major == info.get_major():
@@ -311,7 +434,10 @@ class Phonebook():
     def search_by_gender(self):
         gender = ""
         while(True):
+            print("\n  -- 취소하려면 \"엔터\"를 눌러주세요.")
             gender = input("\n -- 조회하려는 성별을 입력해주세요(남성/여성): ")
+            if gender == "":
+                return
             if(gender == '남성' or gender == '여성'):
                 break
             else:
