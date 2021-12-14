@@ -78,6 +78,7 @@ class Phonebook():
                     int(age)
                 except ValueError:
                     print_invalid_type_error()
+                    continue
                 else:
                     print("")
                     break
@@ -94,6 +95,7 @@ class Phonebook():
                     int(p_num)
                 except ValueError:
                     print_invalid_type_error()
+                    continue
                 else:
                     p_num = p_num[:3] + "-" + p_num[3:-4] + "-" + p_num[-4:]
                     print("")
@@ -103,9 +105,10 @@ class Phonebook():
             student_id = input("-- 학번을 입력해주세요: ")
             if student_id != "":
                 try:
-                    int(age)
+                    int(student_id)
                 except ValueError:
                     print_invalid_type_error()
+                    continue
                 else:
                     print("")
                     break
