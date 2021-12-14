@@ -21,11 +21,3 @@ class Person():
                                                                                                        name=self.name,
                                                                                                        addr=self.addr)
         return message
-
-
-if __name__ == '__main__':
-    p1 = Person()
-    p2 = Person("차윤성", "경기도 남양주시 퇴계원면 퇴계원로 85번길 3-1")
-
-    print(p1)
-    print(p2)

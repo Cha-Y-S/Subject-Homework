@@ -1,6 +1,6 @@
 import json
 from Friend import Friend
-from Message import print_modify_menu, print_invalid_input_error, print_cannot_find_info_message, print_search_menu, print_invalid_gender_error, print_invalid_type_error, print_store_message, print_file_error_message, print_tof_error_message
+from Message import *
 
 
 class Phonebook():
@@ -201,15 +201,13 @@ class Phonebook():
             "\n  -- {prev}에서 {next}으로 수정이 완료되었습니다.\n".format(prev=prev, next=name))
 
     def modify_info_address(self, target):
-        print("\n  -- 취소하려면 \"엔터\"를 눌러주세요.")
         addr = input("\n -- 주소의 수정값을 입력해주세요(읍/면/동 까지): ")
-        if addr == "":
-            return
+
         prev = target.get_address() if target.get_address() != "" else "공백"
         target.set_address(addr)
 
         print(
-            "\n  -- {prev}에서 {next}으로 수정이 완료되었습니다.\n".format(prev=prev, next=addr))
+            "\n  -- {prev}에서 {next}으로 수정이 완료되었습니다.\n".format(prev=prev, next=(addr if addr != "" else "공백")))
 
     def modify_info_phone_number(self, target):
         p_num = ""
@@ -234,10 +232,8 @@ class Phonebook():
     def modify_info_age(self, target):
         age = ""
         while(True):
-            print("\n  -- 취소하려면 \"엔터\"를 눌러주세요.")
             age = input("\n -- 나이의 수정값을 입력해주세요: ")
-            if age == "":
-                return
+
             try:
                 int(age)
             except ValueError:
@@ -248,15 +244,12 @@ class Phonebook():
         target.set_age(age)
 
         print(
-            "\n  -- {prev}에서 {next}으로 수정이 완료되었습니다.\n".format(prev=prev, next=age))
+            "\n  -- {prev}에서 {next}으로 수정이 완료되었습니다.\n".format(prev=prev, next=(age if age != "" else "공백")))
 
     def modify_info_student_id(self, target):
         id = ""
         while(True):
-            print("\n  -- 취소하려면 \"엔터\"를 눌러주세요.")
             id = input("\n -- 학번의 수정값을 입력해주세요: ")
-            if id == "":
-                return
             try:
                 int(id)
             except ValueError:
@@ -267,49 +260,41 @@ class Phonebook():
         target.set_student_id(id)
 
         print(
-            "\n  -- {prev}에서 {next}으로 수정이 완료되었습니다.\n".format(prev=prev, next=id))
+            "\n  -- {prev}에서 {next}으로 수정이 완료되었습니다.\n".format(prev=prev, next=(id if id != "" else "공백")))
 
     def modify_info_club(self, target):
-        print("\n  -- 취소하려면 \"엔터\"를 눌러주세요.")
         club = input("\n -- 동아리의 수정값를 입력해주세요: ")
-        if club == "":
-            return
+
         prev = target.get_club() if target.get_club() != "" else "공백"
         target.set_club(club)
 
         print(
-            "\n  -- {prev}에서 {next}으로 수정이 완료되었습니다.\n".format(prev=prev, next=club))
+            "\n  -- {prev}에서 {next}으로 수정이 완료되었습니다.\n".format(prev=prev, next=(club if club != "" else "공백")))
 
     def modify_info_university(self, target):
-        print("\n  -- 취소하려면 \"엔터\"를 눌러주세요.")
         univ = input("\n -- 대학교의 수정값 입력해주세요: ")
-        if univ == "":
-            return
+
         prev = target.get_university() if target.get_university() != "" else "공백"
         target.set_university(univ)
 
         print(
-            "\n  -- {prev}에서 {next}으로 수정이 완료되었습니다.\n".format(prev=prev, next=univ))
+            "\n  -- {prev}에서 {next}으로 수정이 완료되었습니다.\n".format(prev=prev, next=(univ if univ != "" else "공백")))
 
     def modify_info_major(self, target):
-        print("\n  -- 취소하려면 \"엔터\"를 눌러주세요.")
         major = input("\n -- 전공의 수정값을 입력해주세요: ")
-        if major == "":
-            return
+
         prev = target.get_major() if target.get_major() != "" else "공백"
         target.set_major(major)
 
         print(
-            "\n  -- {prev}에서 {next}으로 수정이 완료되었습니다.\n".format(prev=prev, next=major))
+            "\n  -- {prev}에서 {next}으로 수정이 완료되었습니다.\n".format(prev=prev, next=(major if major != "" else "공백")))
 
     def modify_info_gender(self, target):
         gender = ""
         while(True):
-            print("\n  -- 취소하려면 \"엔터\"를 눌러주세요.")
             gender = input("\n -- 조회하려는 성별을 입력해주세요(남성/여성): ")
-            if gender == "":
-                return
-            if(gender == '남성' or gender == '여성'):
+
+            if(gender == '남성' or gender == '여성' or gender == ""):
                 break
             else:
                 print_invalid_gender_error()
@@ -317,7 +302,7 @@ class Phonebook():
         target.set_gender(gender)
 
         print(
-            "\n  -- {prev}에서 {next}으로 수정이 완료되었습니다.\n".format(prev=prev, next=gender))
+            "\n  -- {prev}에서 {next}으로 수정이 완료되었습니다.\n".format(prev=prev, next=(gender if gender != "" else "공백")))
 
     def delete_information(self):
         param = self.__search_for_md()
@@ -606,13 +591,3 @@ class Phonebook():
         print(
             "-- 전체 연락처 정보 개수: {total}개 --".format(total=Friend.total_friend_cnt).center(100))
         print("")
-
-
-if __name__ == '__main__':
-    json_file = open('./data.json', 'r', encoding="utf-8")
-
-    json_data = json.load(json_file)
-
-    phonebook = Phonebook(json_data)
-
-    phonebook.search_all_information()

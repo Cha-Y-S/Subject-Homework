@@ -97,10 +97,3 @@ class Friend(Person):
             club=self.club)
 
         return message
-
-
-if __name__ == '__main__':
-    f1 = Friend("차윤성", "경기도 남양주시 퇴계원면 퇴계원로 85번길 3-1", 25, "010-3953-8190",
-                "20163162", "Kobot", "국민대학교", "남성")
-
-    print(f1)
