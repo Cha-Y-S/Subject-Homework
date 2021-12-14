@@ -69,8 +69,10 @@ class Friend(Person):
     def set_major(self, major):
         self.major = major
 
-    def __str__(self):
+    def __eq__(self, other):
+        return self.name == other.name and self.p_num == other.p_num
 
+    def __str__(self):
         message = '''\n{top_bar} 연락처 정보 {top_bar}
 * 이름: {name}\t\t\t* 나이: {age}\t\t* 성별: {gender}
 *

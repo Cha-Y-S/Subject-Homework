@@ -1,6 +1,6 @@
 import json
 from Friend import Friend
-from Message import print_modify_menu, print_invalid_input_error, print_cannot_find_info_message, print_search_menu, print_invalid_gender_error, print_invalid_type_error
+from Message import print_modify_menu, print_invalid_input_error, print_cannot_find_info_message, print_search_menu, print_invalid_gender_error, print_invalid_type_error, print_store_message, print_file_error_message, print_tof_error_message
 
 
 class Phonebook():
@@ -9,6 +9,132 @@ class Phonebook():
         for info in info_list:
             self.info.append(Friend(name=info['name'], age=info['age'], p_num=info['phoneNumber'], student_id=info['studentId'],
                                     club=info['club'], univ=info['university'], major=info['major'], gender=info['gender'], addr=info['address']))
+
+    def add_information(self):
+        print("-- 연락처를 추가합니다. --".center(100))
+        print("")
+        print("** 필수 정보 : 이름, 전화번호 **".center(100))
+        print("")
+        print("필수 정보를 제외한 정보들은 입력을 원치 않으면 \"엔터\"를 눌러주세요".center(80))
+        print("")
+
+        name, age, p_num, student_id, club, univ, major, gender, addr = self.get_information_from_user()
+        temp = Friend(name=name, age=age, p_num=p_num, student_id=student_id,
+                      club=club, univ=univ, major=major, gender=gender, addr=addr)
+
+        for info in self.info:
+            if info == temp:
+                print("* 동일한 전화번호를 가지는 사람이 이미 존재합니다.*".center(100))
+                print("")
+                print("* 다시 진행해주세요 *".center(114))
+                print("")
+                Friend.total_friend_cnt -= 1
+                return False
+
+        flag = True
+        while flag:
+            print_store_message()
+            store = input()
+            if store == "예":
+                try:
+                    self.info.append(temp)
+                    json_file = open('./info.json', 'w', encoding='utf-8')
+                    write_list = list()
+                    for obj in self.info:
+                        write_list.append({"name": obj.get_name(), "age": obj.get_age(), "phoneNumber": obj.get_phone_number(),
+                                           "studentId": obj.get_student_id(), "club": obj.get_club(), "university": obj.get_university(),
+                                           "major": obj.get_major(), "gender": obj.get_gender(), "address": obj.get_address()})
+
+                    json.dump(write_list, json_file, indent="\t")
+                    json_file.close()
+                    flag = False
+                except IOError:
+                    print_file_error_message()
+                    break
+            elif store == "아니오":
+                flag = False
+                Friend.total_friend_cnt -= 1
+            else:
+                print_tof_error_message()
+
+        print("")
+        return True
+
+    def get_information_from_user(self):
+        while True:
+            name = input("-- *이름을 입력해주세요: ")
+
+            if (name == ""):
+                print("\n이름은 필수 정보입니다. 다시 한번 입력해주세요.\n")
+            else:
+                print("")
+                break
+
+        while True:
+            age = input("-- 나이를 입력해주세요: ")
+
+            if age != "":
+                try:
+                    int(age)
+                except ValueError:
+                    print_invalid_type_error()
+                else:
+                    print("")
+                    break
+            else:
+                print("")
+                break
+
+        while True:
+            p_num = input("-- *전화번호를 입력해주세요: ")
+            if p_num == "":
+                print("\n전화번호는 필수 정보입니다. 다시 한번 입력해주세요.\n")
+            else:
+                try:
+                    int(p_num)
+                except ValueError:
+                    print_invalid_type_error()
+                else:
+                    p_num = p_num[:3] + "-" + p_num[3:-4] + "-" + p_num[-4:]
+                    print("")
+                    break
+
+        while True:
+            student_id = input("-- 학번을 입력해주세요: ")
+            if student_id != "":
+                try:
+                    int(age)
+                except ValueError:
+                    print_invalid_type_error()
+                else:
+                    print("")
+                    break
+            else:
+                print("")
+                break
+
+        club = input("-- 동아리를 입력해주세요: ")
+        print("")
+
+        univ = input("-- 대학교를 입력해주세요: ")
+        print("")
+
+        major = input("-- 전공을 입력해주세요: ")
+        print("")
+
+        while True:
+            gender = input("-- 성별을 입력해주세요(남성/여성): ")
+
+            if(gender != "남성" and gender != "여성" and gender != ""):
+                print_invalid_gender_error()
+            else:
+                print("")
+                break
+
+        addr = input("-- 주소를 입력해주세요(읍/면/동 까지): ")
+        print("")
+
+        return (name, age, p_num, student_id, club, univ, major, gender, addr)
 
     def modify_information(self):
         while(True):

@@ -1,4 +1,5 @@
 import json
+from typing import Type
 from Friend import Friend
 from Phonebook import Phonebook
 from Message import *
@@ -6,9 +7,18 @@ from Message import *
 
 if __name__ == '__main__':
     try:
-        json_file = open('./info.json', encoding="utf-8")
+        json_file = open('./info.json', encoding='utf-8')
         json_data = json.load(json_file)
-    except (FileNotFoundError, TypeError):
+        json_file.close()
+    except FileNotFoundError:
+        json_file = open('./info.json', 'w', encoding='utf-8')
+        json.dump([], json_file, indent="\t")
+        json_file.close()
+        json_file = open('./info.json', encoding='utf-8')
+        json_data = json.load(json_file)
+        json_file.close()
+
+    except IOError:
         print_file_error_message()
         exit()
 
@@ -23,16 +33,15 @@ if __name__ == '__main__':
         try:
             page_num = int(select_menu)
             if page_num == 1:
-                # print("연락처 추가")
-                print("TODO: 연락처 추가".center(100))
-                print_add_message()
+                while True:
+                    if phonebook.add_information():
+                        break
 
             elif page_num == 2:
                 # print("연락처 수정")
                 phonebook.modify_information()
 
             elif page_num == 3:
-                # print("연락처 삭제")
                 print("TODO: 연락처 삭제".center(100))
                 print_delete_message()
 
@@ -56,11 +65,9 @@ if __name__ == '__main__':
                     print("== TODO: 연락처 초기화")
 
             elif page_num == 5:
-                # 연락처 조회
                 phonebook.search_information()
 
             elif page_num == 6:
-                # 연락처 전체 조회
                 phonebook.search_all_information()
 
             elif page_num == 7:
